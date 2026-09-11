@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mridha-construction-consultancy.mridhacc.workers.dev/sitemap.xml
