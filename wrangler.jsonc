@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mridha-construction-consultancy",
+  "compatibility_date": "2026-09-12",
+  "assets": {
+    "directory": "./"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "SITE",
+      "id": "1bf4360d9adf4c11b7d645877d73e4d9"
+    }
+  ]
+}
