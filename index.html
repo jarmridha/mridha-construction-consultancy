@@ -7,6 +7,9 @@
 <meta name="description" content="Mridha Construction and Consultancy provides building construction, engineering consultancy, BOQ and estimation, project management, QA/QC, interior fit-out and renovation services in Bangladesh.">
 <meta name="theme-color" content="#0d0d0d">
 <link rel="icon" type="image/webp" href="/assets/mridha-logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
 <meta property="og:title" content="Mridha Construction and Consultancy">
 <meta property="og:description" content="Engineering-led construction and consultancy with disciplined execution, technical clarity and quality-focused delivery.">
 <meta property="og:type" content="website">
@@ -45,8 +48,11 @@
   h1{font-size:clamp(2.5rem,6vw,5rem)}
   h2{font-size:clamp(1.8rem,3.5vw,2.8rem)}
   header{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 6vw;background:linear-gradient(to bottom,rgba(0,0,0,.78),transparent)}
-  header .brand{display:flex;align-items:center;gap:.75rem;font-family:var(--serif);letter-spacing:.15em;font-size:1.05rem}
+  header .brand{display:flex;align-items:center;gap:.8rem;min-width:0}
   .brand-logo{width:46px;height:46px;object-fit:contain;flex:0 0 auto}
+  .brand-text{display:flex;flex-direction:column;justify-content:center;min-width:0}
+  .brand-primary{font-family:'Cinzel Decorative',serif;font-size:1.06rem;font-weight:700;line-height:1.05;letter-spacing:.08em;color:var(--fg)}
+  .brand-secondary{font-family:'Cinzel',serif;font-size:.62rem;font-weight:500;line-height:1.3;letter-spacing:.11em;color:#ddd8cf;white-space:nowrap}
   nav a{margin-left:2rem;font-size:.9rem;opacity:.85}
   nav a:hover{opacity:1;color:var(--accent)}
   .hero{position:relative;height:100vh;display:flex;align-items:flex-end;padding:0 6vw 5rem}
@@ -93,32 +99,40 @@
   footer h4{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
   footer a,footer p{display:block;margin-bottom:.5rem;font-size:.95rem}
   .footer-bottom{max-width:1400px;margin:2rem auto 0;padding:2rem 6vw 2rem;border-top:1px solid #2a2a2a;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.85rem}
-  .footer-mark{display:flex;align-items:center;gap:.7rem;color:var(--fg);font-family:var(--serif);letter-spacing:.12em}
+  .footer-mark{display:flex;align-items:center;gap:.75rem;color:var(--fg)}
   .footer-logo{width:52px;height:52px;object-fit:contain}
+  .footer-mark .brand-primary{font-size:.98rem}
+  .footer-mark .brand-secondary{font-size:.58rem}
   @media(max-width:900px){.capabilities{grid-template-columns:1fr 1fr}}
   @media(max-width:800px){
     .grid-2,.commitment,.leadership{grid-template-columns:1fr}
     .service-row{grid-template-columns:1fr;gap:.5rem}
     footer{grid-template-columns:1fr 1fr}
     nav a{margin-left:1rem;font-size:.8rem}
+    .brand-primary{font-size:.96rem}
+    .brand-secondary{font-size:.56rem}
   }
   @media(max-width:560px){
     header{align-items:flex-start;gap:1rem;padding-top:.9rem}
-    .brand-logo{width:40px;height:40px}
-    header .brand span{display:none}
-    nav{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.55rem 1rem}
-    nav a{margin-left:0}
+    .brand-logo{width:38px;height:38px}
+    .brand-primary{font-size:.78rem}
+    .brand-secondary{font-size:.45rem;letter-spacing:.08em}
+    nav{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.55rem .85rem}
+    nav a{margin-left:0;font-size:.72rem}
     .capabilities,footer{grid-template-columns:1fr}
-    .footer-bottom{gap:1rem;align-items:flex-end}
+    .footer-bottom{gap:1rem;align-items:flex-end;flex-direction:column;align-items:flex-start}
     .footer-logo{width:44px;height:44px}
   }
 </style>
 </head>
 <body>
 <header>
-  <a class="brand" href="#home" aria-label="Mridha home">
-    <img class="brand-logo" src="/assets/mridha-logo.webp" alt="Mridha logo">
-    <span>MRIDHA®</span>
+  <a class="brand" href="#home" aria-label="Mridha Construction and Consultancy home">
+    <img class="brand-logo" src="/assets/mridha-logo.webp" alt="Mridha Construction and Consultancy logo">
+    <span class="brand-text">
+      <span class="brand-primary">Mridha</span>
+      <span class="brand-secondary">Construction and Consultancy</span>
+    </span>
   </a>
   <nav aria-label="Primary navigation">
     <a href="#projects">Projects</a>
@@ -308,8 +322,14 @@
   </div>
 </footer>
 <div class="footer-bottom">
-  <span class="footer-mark"><img class="footer-logo" src="/assets/mridha-logo.webp" alt="Mridha logo"><span>MRIDHA®</span></span>
-  <span>Mridha © 2026 Construction &amp; Consultancy</span>
+  <span class="footer-mark">
+    <img class="footer-logo" src="/assets/mridha-logo.webp" alt="Mridha Construction and Consultancy logo">
+    <span class="brand-text">
+      <span class="brand-primary">Mridha</span>
+      <span class="brand-secondary">Construction and Consultancy</span>
+    </span>
+  </span>
+  <span>Mridha Construction and Consultancy © 2026</span>
 </div>
 </body>
 </html>
