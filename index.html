@@ -60,12 +60,12 @@
   .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.86),rgba(0,0,0,.22));z-index:-1}
   .hero p{max-width:500px;color:var(--muted);margin-top:1rem}
   .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;margin-top:3rem}
-  .grid-2 img{border-radius:4px}
+  .grid-2 img{border-radius:4px;aspect-ratio:4/5;object-position:center top;background:#e7e7e5}
   .about-copy{max-width:820px;font-size:1.3rem;color:#ddd8cf;margin-bottom:2rem}
   .tagline{color:var(--muted);font-size:1rem}
   .link-arrow{display:inline-block;margin-top:2rem;border-bottom:1px solid var(--accent);color:var(--accent);padding-bottom:2px}
   .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:3rem}
-  .project-card img{aspect-ratio:4/5;border-radius:4px;margin-bottom:1rem;transition:transform .4s}
+  .project-card img{aspect-ratio:4/5;border-radius:4px;margin-bottom:1rem;transition:transform .4s;object-position:center top}
   .project-card:hover img{transform:scale(1.03)}
   .project-card .tag{color:var(--muted);font-size:.9rem}
   .project-card .note{color:#77736c;font-size:.78rem;margin-top:.45rem}
@@ -120,7 +120,7 @@
     nav{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:.55rem .85rem}
     nav a{margin-left:0;font-size:.72rem}
     .capabilities,footer{grid-template-columns:1fr}
-    .footer-bottom{gap:1rem;align-items:flex-end;flex-direction:column;align-items:flex-start}
+    .footer-bottom{gap:1rem;flex-direction:column;align-items:flex-start}
     .footer-logo{width:44px;height:44px}
   }
 </style>
@@ -158,8 +158,8 @@
   <p class="about-copy">Mridha Construction and Consultancy brings engineering judgement, practical planning and quality-focused execution together. From early feasibility and BOQ preparation to site supervision, construction, fit-out and handover, we help clients move from idea to delivery with greater clarity and control.</p>
   <p class="tagline">Built with purpose.<br>Finished with precision.</p>
   <div class="grid-2">
-    <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=800&q=85" alt="Architectural concrete detail">
-    <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=88" alt="Contemporary residential exterior">
+    <img src="/assets/concept-elevation.webp" alt="Architectural elevation concept drawing with timber roof form">
+    <img src="/assets/concept-section.webp" alt="Architectural section concept with timber structure and technical annotations">
   </div>
   <a class="link-arrow" href="#services">Explore our services ↗</a>
 </section>
@@ -169,16 +169,16 @@
   <h2>Planned with Clarity,<br>Delivered with Discipline</h2>
   <div class="projects-grid">
     <article class="project-card">
-      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=88" alt="Residential construction reference image">
+      <img src="/assets/concept-residential.webp" alt="Residential architectural concept image featuring a modern tree-integrated house">
       <h3>Residential Construction</h3>
       <div class="tag">Planning · Construction · Supervision</div>
-      <div class="note">Reference imagery — project case studies will be added from verified company work.</div>
+      <div class="note">Concept reference image representing creative residential design and build thinking.</div>
     </article>
     <article class="project-card">
-      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=88" alt="Commercial building reference image">
+      <img src="/assets/concept-urban.webp" alt="Urban architectural concept artwork with city towers and geometric overlays">
       <h3>Commercial Projects</h3>
       <div class="tag">Coordination · QA/QC · Delivery</div>
-      <div class="note">Reference imagery — project case studies will be added from verified company work.</div>
+      <div class="note">Concept reference image representing commercial and urban project environments.</div>
     </article>
     <article class="project-card">
       <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=88" alt="Renovation reference image">
