@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mridha Construction and Consultancy</title>
+<meta name="description" content="Designing strong foundations and remarkable places across Bangladesh.">
+<style>
+  :root{
+    --bg:#0d0d0d; --fg:#f4f2ee; --muted:#a8a49c; --accent:#c9a35a;
+    --serif:'Georgia','Times New Roman',serif; --sans:-apple-system,'Segoe UI',Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  img{width:100%;display:block;object-fit:cover}
+  section{padding:6rem 6vw;max-width:1400px;margin:0 auto}
+  .eyebrow{letter-spacing:.2em;font-size:.75rem;color:var(--accent);text-transform:uppercase;margin-bottom:1rem}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15}
+  h1{font-size:clamp(2.5rem,6vw,5rem)}
+  h2{font-size:clamp(1.8rem,3.5vw,2.8rem)}
+  header{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;
+    align-items:center;padding:1.5rem 6vw;background:linear-gradient(to bottom,rgba(0,0,0,.6),transparent)}
+  header .brand{font-family:var(--serif);letter-spacing:.15em;font-size:1.1rem}
+  nav a{margin-left:2rem;font-size:.9rem;opacity:.85}
+  nav a:hover{opacity:1;color:var(--accent)}
+  .hero{position:relative;height:100vh;display:flex;align-items:flex-end;padding:0 6vw 5rem}
+  .hero img{position:absolute;inset:0;height:100%;z-index:-2}
+  .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85),rgba(0,0,0,.2));z-index:-1}
+  .hero p{max-width:420px;color:var(--muted);margin-top:1rem}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;margin-top:3rem}
+  .grid-2 img{border-radius:4px}
+  .about-copy{max-width:750px;font-size:1.3rem;color:#ddd8cf;margin-bottom:2rem}
+  .tagline{color:var(--muted);font-size:1rem}
+  .link-arrow{display:inline-block;margin-top:2rem;border-bottom:1px solid var(--accent);color:var(--accent);padding-bottom:2px}
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:3rem}
+  .project-card img{aspect-ratio:4/5;border-radius:4px;margin-bottom:1rem;transition:transform .4s}
+  .project-card:hover img{transform:scale(1.03)}
+  .project-card .tag{color:var(--muted);font-size:.9rem}
+  .services-list{margin-top:3rem;display:flex;flex-direction:column}
+  .service-row{display:grid;grid-template-columns:60px 1fr 200px;gap:2rem;align-items:center;
+    padding:2.5rem 0;border-top:1px solid #2a2a2a}
+  .service-row:last-child{border-bottom:1px solid #2a2a2a}
+  .service-num{color:var(--accent);font-family:var(--serif)}
+  .service-row img{width:100%;height:120px;border-radius:4px}
+  .service-row p{color:var(--muted);max-width:500px}
+  .quote-block{display:grid;grid-template-columns:1fr 1.2fr;gap:3rem;align-items:center}
+  .quote-block img{border-radius:4px;aspect-ratio:4/5}
+  blockquote{font-family:var(--serif);font-size:1.6rem;font-style:italic;color:#ddd8cf}
+  .quote-attr{margin-top:1.5rem;color:var(--muted);font-family:var(--sans);font-style:normal}
+  .faq{margin-top:3rem;max-width:800px}
+  .faq-item{border-top:1px solid #2a2a2a;padding:1.5rem 0}
+  .faq-item:last-child{border-bottom:1px solid #2a2a2a}
+  .faq-item summary{cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between}
+  .faq-item p{margin-top:1rem;color:var(--muted)}
+  .cta{position:relative;text-align:center;padding:8rem 6vw}
+  .cta img{position:absolute;inset:0;z-index:-2}
+  .cta::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.75);z-index:-1}
+  footer{padding:4rem 6vw;border-top:1px solid #2a2a2a;display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:2rem}
+  footer h4{font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+  footer a,footer p{display:block;margin-bottom:.5rem;font-size:.95rem}
+  .footer-bottom{max-width:1400px;margin:2rem auto 0;padding:2rem 6vw 0;border-top:1px solid #2a2a2a;
+    display:flex;justify-content:space-between;color:var(--muted);font-size:.85rem}
+  @media(max-width:800px){
+    .grid-2,.quote-block{grid-template-columns:1fr}
+    .service-row{grid-template-columns:1fr;gap:.5rem}
+    footer{grid-template-columns:1fr 1fr}
+    nav a{margin-left:1rem;font-size:.8rem}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="#home">MRIDHA®</a>
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero" id="home">
+  <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2400&q=92" alt="Modern concrete residence">
+  <div>
+    <h1>Where strong<br>foundations begin</h1>
+    <p>At Mridha, every project is thoughtfully designed and precisely built to create enduring value.</p>
+  </div>
+</div>
+
+<section id="about">
+  <div class="eyebrow">About Us</div>
+  <p class="about-copy">Mridha transforms ambitious ideas into enduring places. Our approach brings design intelligence, technical clarity and disciplined construction together — creating spaces built to perform beautifully for generations.</p>
+  <p class="tagline">Built with purpose.<br>Finished with precision.</p>
+  <div class="grid-2">
+    <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=800&q=85" alt="Architectural detail">
+    <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=88" alt="Contemporary home exterior">
+  </div>
+  <a class="link-arrow" href="#services">Our approach ↗</a>
+</section>
+
+<section id="projects">
+  <div class="eyebrow">Featured Projects</div>
+  <h2>Thoughtfully Designed,<br>Precisely Delivered</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=88" alt="Uttara Residence">
+      <h3>Uttara Residence</h3>
+      <div class="tag">Residential ↗</div>
+    </div>
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=88" alt="The Meridian">
+      <h3>The Meridian</h3>
+      <div class="tag">Commercial ↗</div>
+    </div>
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=88" alt="Bashundhara Villa">
+      <h3>Bashundhara Villa</h3>
+      <div class="tag">Residential ↗</div>
+    </div>
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=88" alt="Riverfront Offices">
+      <h3>Riverfront Offices</h3>
+      <div class="tag">Workplace ↗</div>
+    </div>
+  </div>
+  <a class="link-arrow" href="#contact">Discuss your project ↗</a>
+</section>
+
+<section id="services">
+  <div class="eyebrow">Services</div>
+  <h2>From First Sketch<br>to Final Handover</h2>
+  <div class="services-list">
+    <div class="service-row">
+      <div class="service-num">01</div>
+      <div>
+        <h3>Architectural Design</h3>
+        <p>Purpose-led architecture shaped around context, climate, function and the way people live.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1300&q=88" alt="Architectural Design">
+    </div>
+    <div class="service-row">
+      <div class="service-num">02</div>
+      <div>
+        <h3>Construction</h3>
+        <p>Disciplined execution, transparent supervision and quality control from foundation to handover.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1300&q=88" alt="Construction">
+    </div>
+    <div class="service-row">
+      <div class="service-num">03</div>
+      <div>
+        <h3>Project Consultancy</h3>
+        <p>Clear technical guidance for planning, costing, approvals, procurement and delivery.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1531835551805-16d864c8d311?auto=format&fit=crop&w=1300&q=88" alt="Project Consultancy">
+    </div>
+    <div class="service-row">
+      <div class="service-num">04</div>
+      <div>
+        <h3>Interior Solutions</h3>
+        <p>Considered interiors where material, light and detail come together with effortless clarity.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1300&q=88" alt="Interior Solutions">
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Client Story</div>
+  <h2 style="margin-bottom:3rem">Trusted by People<br>Who Build for Tomorrow</h2>
+  <div class="quote-block">
+    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=88" alt="Completed residential interior">
+    <blockquote>
+      "Mridha brought absolute clarity to a complex project. The team balanced design ambition with practical decisions, and the workmanship exceeded our expectations."
+      <div class="quote-attr"><strong>Arif Rahman</strong><br>Residential Client, Dhaka</div>
+    </blockquote>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">FAQ</div>
+  <h2>Your Questions<br>Answered</h2>
+  <div class="faq">
+    <details class="faq-item"><summary>What kind of projects do you undertake? <span>+</span></summary>
+      <p>We work across residential, commercial, workplace and mixed-use projects, from early feasibility through construction and interior completion.</p></details>
+    <details class="faq-item"><summary>Can you manage a project from start to finish? <span>+</span></summary>
+      <p>Yes. Our integrated team can lead design, budgeting, approvals, contractor coordination, site supervision and final handover.</p></details>
+    <details class="faq-item"><summary>Do you provide structural and cost consultancy? <span>+</span></summary>
+      <p>Yes. We coordinate architectural and structural requirements and prepare practical estimates, schedules and procurement strategies.</p></details>
+    <details class="faq-item"><summary>How do we begin? <span>+</span></summary>
+      <p>Every project starts with a focused consultation to understand your site, goals, timeline and investment expectations.</p></details>
+    <details class="faq-item"><summary>Where do you work? <span>+</span></summary>
+      <p>We are based in Dhaka and undertake selected projects throughout Bangladesh.</p></details>
+  </div>
+</section>
+
+<div class="cta" id="contact">
+  <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2200&q=90" alt="Monumental concrete architecture">
+  <h2>Build Something<br>That Endures</h2>
+  <p style="color:var(--muted);max-width:500px;margin:1.5rem auto">Bring us your site, your goals and your biggest ideas. We'll turn them into a clear path from concept to completion.</p>
+  <a class="link-arrow" href="mailto:hello@mridhaconstruction.com">Start a Project ↗</a>
+</div>
+
+<footer>
+  <div>
+    <h4>Contact</h4>
+    <p>Dhaka, Bangladesh</p>
+    <a href="mailto:hello@mridhaconstruction.com">hello@mridhaconstruction.com</a>
+    <a href="tel:+8801700000000">+880 1700 000 000</a>
+  </div>
+  <div>
+    <h4>Navigate</h4>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div>
+    <h4>Social</h4>
+    <a href="#">LinkedIn</a>
+    <a href="#">Instagram</a>
+    <a href="#">Facebook</a>
+  </div>
+  <div>
+    <h4>Project Notes</h4>
+    <p style="color:var(--muted)">Occasional updates from our studio and active sites.</p>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>MRIDHA®</span>
+  <span>Mridha © 2026 Construction &amp; Consultancy</span>
+</div>
+
+</body>
+</html>
