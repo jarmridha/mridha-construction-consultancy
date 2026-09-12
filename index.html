@@ -322,6 +322,69 @@ footer a,footer p{display:block;margin-bottom:.5rem;font-size:.95rem}
   .leadership-visual{min-height:500px;}
 }
 
+
+/* FINAL Engineering Leadership image sizing override */
+#leadership .leadership{
+  grid-template-columns:minmax(460px,560px) minmax(0,1fr) !important;
+  gap:3rem !important;
+  align-items:center !important;
+}
+
+#leadership .leadership-visual{
+  position:relative !important;
+  width:100% !important;
+  max-width:560px !important;
+  height:auto !important;
+  min-height:0 !important;
+  aspect-ratio:3 / 4 !important;
+  overflow:hidden !important;
+  padding:0 !important;
+  margin:0 !important;
+  border:1px solid var(--line) !important;
+  border-radius:4px !important;
+  background:#111 !important;
+}
+
+#leadership .leadership-owner{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  display:block !important;
+  object-fit:cover !important;
+  object-position:center center !important;
+  margin:0 !important;
+  padding:0 !important;
+  filter:none !important;
+  transform:none !important;
+}
+
+@media(max-width:1000px){
+  #leadership .leadership{
+    grid-template-columns:minmax(380px,480px) minmax(0,1fr) !important;
+    gap:2rem !important;
+  }
+}
+
+@media(max-width:800px){
+  #leadership .leadership{
+    grid-template-columns:1fr !important;
+  }
+  #leadership .leadership-visual{
+    width:min(100%,560px) !important;
+    max-width:560px !important;
+    margin:0 auto !important;
+  }
+}
+
+@media(max-width:560px){
+  #leadership .leadership-visual{
+    width:100% !important;
+    max-width:none !important;
+    aspect-ratio:3 / 4 !important;
+  }
+}
+
 </style>
 </head>
 
@@ -484,7 +547,7 @@ footer a,footer p{display:block;margin-bottom:.5rem;font-size:.95rem}
       <div class="leadership-visual">
         <img
           class="leadership-owner"
-          src="/assets/engineering-leadership.png"
+          src="/assets/engineering-leadership-v2.png"
           alt="Engineering leadership at an active construction site"
           width="1152"
           height="1536"
