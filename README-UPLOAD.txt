@@ -1,38 +1,42 @@
-MRIDHA CONSTRUCTION AND CONSULTANCY — UPDATED WEBSITE PACKAGE
+MRIDHA CONSTRUCTION AND CONSULTANCY — PRODUCTION UPDATE
 
-Upload/replace these items in the ROOT of your GitHub repository:
-1) index.html
-2) robots.txt
-3) sitemap.xml
-4) the entire assets/ folder
+UPLOAD / REPLACE
+1. index.html
+2. robots.txt
+3. sitemap.xml
+4. Upload the entire assets/ folder, replacing same-named files.
 
-Keep your existing wrangler.jsonc and .assetsignore unchanged.
-Do NOT delete your Cloudflare KV namespace/binding.
+KEEP UNCHANGED
+- wrangler.jsonc
+- .assetsignore
+- Cloudflare KV namespace/binding
 
-The package currently uses this canonical domain:
-https://mridha-construction-consultancy.mridhacc.workers.dev/
+COMPLETED IMPROVEMENTS
+- Mobile-menu keyboard, focus, ESC, resize and aria-hidden fixes
+- Progressive enhancement: navigation remains usable when JavaScript fails
+- External Unsplash images removed from this package
+- All section imagery is served locally as optimized WebP
+- Explicit image dimensions added to reduce CLS
+- Proper About H2 and improved semantic section labeling
+- Navigation order improved: About → Services → Expertise → Leadership → Contact
+- Added verified-project proof framework without inventing projects, clients or statistics
+- Leadership visual changed to a branded engineering panel instead of repeating a generic image
+- FAQ + symbols hidden from screen readers
+- Fixed anchor scroll offset for Contact and other IDs
+- 100vh fallback added before 100svh
+- WhatsApp is now the primary CTA; phone is secondary
+- SEO title and meta description tightened
+- Existing transparent animated logo treatment retained
+- Existing robots.txt, sitemap.xml and social metadata retained
 
-When you later connect a permanent custom domain, update canonical, og:url, schema URL, robots.txt sitemap URL, and sitemap.xml <loc>.
+IMPORTANT
+The project proof section is intentionally factual and does not claim completed projects.
+Replace the reference imagery with verified real project photos/case studies when available.
 
-Included improvements:
-- repaired/optimized uploaded concept images
-- full MRIDHA Cinzel branding
-- responsive hamburger menu
-- sticky blurred header
-- Projects renamed to Expertise
-- non-misleading Leadership visual
-- lazy loading/async decoding for below-fold images
-- accessibility/contrast improvements
-- canonical/Open Graph/Twitter/JSON-LD metadata
-- dedicated social-share image
-- robots.txt + sitemap.xml
-- reduced-motion support
-
-
-LATEST BRAND UPDATE
-- Logo outside area is transparent.
-- One-time logo entrance animation.
-- Subtle hover scale/rotation with copper glow.
-- Staggered MRIDHA + subtitle reveal.
-- Header becomes more compact after scrolling.
-- Reduced-motion users see a static version.
+If you later move to a custom domain, update:
+- canonical URL
+- og:url
+- og:image
+- JSON-LD url/logo/image
+- robots.txt Sitemap URL
+- sitemap.xml <loc>
