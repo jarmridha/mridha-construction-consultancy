@@ -385,6 +385,36 @@ footer a,footer p{display:block;margin-bottom:.5rem;font-size:.95rem}
   }
 }
 
+
+/* Optimized website video visuals */
+.project-card .project-media{
+  width:100%;
+  aspect-ratio:4/5;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+  border-radius:4px;
+  margin-bottom:1rem;
+  background:#111;
+}
+.service-row .service-media{
+  width:100%;
+  height:120px;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+  border-radius:4px;
+  background:#111;
+}
+@media(max-width:800px){
+  .service-row .service-media{height:200px;}
+}
+@media(prefers-reduced-motion:reduce){
+  .project-media,.service-media{display:none;}
+  .project-card:has(.project-media)::before,
+  .service-row:has(.service-media)::after{content:none;}
+}
+
 </style>
 </head>
 
@@ -451,7 +481,11 @@ footer a,footer p{display:block;margin-bottom:.5rem;font-size:.95rem}
       <article class="service-row">
         <div class="service-num">02</div>
         <div><h3>Engineering Consultancy</h3><p>Practical technical guidance for feasibility, design coordination, drawing review, site planning and construction decisions.</p></div>
-        <img src="/assets/service-consultancy.webp" width="900" height="600" alt="Engineering consultancy drawing reference" loading="lazy" decoding="async">
+        <video class="service-media" autoplay muted loop playsinline preload="metadata" poster="/assets/consultancy-concept-poster.jpg" aria-label="Animated engineering consultancy concept reference">
+          <source src="/assets/consultancy-concept-loop.webm" type="video/webm">
+          <source src="/assets/consultancy-concept-loop.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
       </article>
 
       <article class="service-row">
@@ -486,7 +520,11 @@ footer a,footer p{display:block;margin-bottom:.5rem;font-size:.95rem}
 
     <div class="projects-grid">
       <article class="project-card">
-        <img src="/assets/concept-residential.webp" width="1233" height="1536" alt="Residential architectural concept featuring a tree-integrated house" loading="lazy" decoding="async">
+        <video class="project-media" autoplay muted loop playsinline preload="metadata" poster="/assets/residential-concept-poster.jpg" aria-label="Animated residential architectural concept reference">
+          <source src="/assets/residential-concept-loop.webm" type="video/webm">
+          <source src="/assets/residential-concept-loop.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
         <h3>Residential Construction</h3>
         <div class="tag">Planning · Construction · Supervision</div>
         <div class="note">Concept/reference imagery — not presented as a completed company project photograph.</div>
@@ -718,5 +756,24 @@ footer a,footer p{display:block;margin-bottom:.5rem;font-size:.95rem}
   if (isMobile()) nav.setAttribute('aria-hidden', 'true');
 })();
 </script>
+
+<script>
+(() => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const syncMotionPreference = () => {
+    document.querySelectorAll('video[autoplay]').forEach(video => {
+      if (reduceMotion.matches) {
+        video.pause();
+        video.removeAttribute('autoplay');
+      } else if (video.paused) {
+        video.play().catch(() => {});
+      }
+    });
+  };
+  syncMotionPreference();
+  if (reduceMotion.addEventListener) reduceMotion.addEventListener('change', syncMotionPreference);
+})();
+</script>
+
 </body>
 </html>
