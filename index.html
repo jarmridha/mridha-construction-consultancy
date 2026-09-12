@@ -174,13 +174,29 @@ nav a:hover{opacity:1;color:var(--accent)}
 
 .leadership{display:grid;grid-template-columns:.9fr 1.2fr;gap:3rem;align-items:center;margin-top:3rem}
 .leadership-visual{
+  position:relative;isolation:isolate;overflow:hidden;
   min-height:520px;padding:2rem;display:flex;flex-direction:column;justify-content:flex-end;
   border:1px solid var(--line);border-radius:4px;
-  background:radial-gradient(circle at 25% 20%,rgba(201,163,90,.16),transparent 35%),linear-gradient(160deg,#111,#080808)
+  background:linear-gradient(160deg,#111,#080808)
 }
-.leadership-visual img{width:128px;height:128px;object-fit:contain;margin-bottom:auto}
+.leadership-visual::before{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(to top, rgba(0,0,0,.82) 16%, rgba(0,0,0,.38) 48%, rgba(0,0,0,.18) 100%),
+    radial-gradient(circle at 25% 20%,rgba(201,163,90,.18),transparent 35%);
+  z-index:1;
+}
+.leadership-owner{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 24%;
+  margin:0;z-index:0;filter:saturate(.92) brightness(.84) contrast(1.04);
+}
+.leadership-logo{
+  width:128px;height:128px;object-fit:contain;margin-bottom:auto;position:relative;z-index:2;
+  filter:drop-shadow(0 4px 14px rgba(0,0,0,.35));
+}
+.leadership-visual strong,.leadership-visual span{position:relative;z-index:2}
 .leadership-visual strong{font-family:'Cinzel',serif;font-weight:500;font-size:1.15rem}
-.leadership-visual span{color:var(--muted);margin-top:.45rem;font-size:.9rem}
+.leadership-visual span{color:#d4cdc2;margin-top:.45rem;font-size:.9rem}
 .leadership p{color:var(--muted);margin-top:1rem;max-width:650px}
 .credential-line{margin-top:1.5rem;color:#ddd8cf;font-size:.95rem;line-height:1.9}
 
@@ -301,7 +317,7 @@ footer a,footer p{display:block;margin-bottom:.5rem;font-size:.95rem}
 
 <main id="main-content">
   <div class="hero" id="home">
-    <img src="/assets/hero.webp" alt="Urban architectural concept representing engineering-led project delivery" width="1920" height="1080" fetchpriority="high" decoding="async">
+    <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=2200&q=88" alt="Contemporary concrete residence" fetchpriority="high" decoding="async">
     <div class="hero-kicker">
       <div class="eyebrow">Engineering-led construction since 2019</div>
       <h1>Where strong<br>foundations begin</h1>
@@ -431,7 +447,8 @@ footer a,footer p{display:block;margin-bottom:.5rem;font-size:.95rem}
     <div class="eyebrow">Engineering Leadership</div>
     <div class="leadership">
       <div class="leadership-visual" aria-hidden="true">
-        <img src="/assets/mridha-logo.webp" alt="" width="128" height="128">
+        <img class="leadership-owner" src="/assets/owner-leadership.webp" alt="" width="1000" height="1250">
+        <img class="leadership-logo" src="/assets/mridha-logo.webp" alt="" width="128" height="128">
         <strong>Engineering Leadership</strong>
         <span>Construction · QA/QC · Project Delivery</span>
       </div>
@@ -485,7 +502,7 @@ footer a,footer p{display:block;margin-bottom:.5rem;font-size:.95rem}
   </section>
 
   <div class="cta" id="contact">
-    <img src="/assets/cta.webp" width="1920" height="900" alt="" loading="lazy" decoding="async">
+    <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2000&q=86" alt="Concrete architecture" loading="lazy" decoding="async">
     <h2>Build Something<br>That Endures</h2>
     <p style="color:#bbb6ad;max-width:580px;margin:1.5rem auto">Share your site, scope and goals. We will help turn them into a practical path from planning and cost control through execution and handover.</p>
     <div class="cta-actions">
