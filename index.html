@@ -579,6 +579,40 @@ body.site-intro-active{
   }
 }
 
+
+/* FINAL FIX — About section image crop/fit */
+#about .grid-2{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:1.25rem !important;
+  align-items:start !important;
+}
+#about .grid-2 .about-poster{
+  width:100% !important;
+  height:auto !important;
+  max-height:none !important;
+  min-height:0 !important;
+  aspect-ratio:auto !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  display:block !important;
+  margin:0 !important;
+  padding:0 !important;
+  background:transparent !important;
+  border-radius:4px !important;
+}
+@media(max-width:800px){
+  #about .grid-2{
+    grid-template-columns:1fr !important;
+    gap:1rem !important;
+  }
+  #about .grid-2 .about-poster{
+    width:min(100%,560px) !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+}
+
 </style>
 <link rel="preload" as="video" href="/assets/mridha-construction-intro.mp4" type="video/mp4">
 </head>
