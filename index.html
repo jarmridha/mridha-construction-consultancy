@@ -1119,12 +1119,20 @@ body.project-dialog-open{overflow:hidden}
   aspect-ratio:4 / 3;
 }
 
-/* Residential Apartment uses accurately extracted source-photo proportions. */
+/* Residential Apartment: uniform 4:3 project-card preview; full project images remain uncropped. */
 .project-card-button[data-project-open="gazipur-apartment"] .project-card-image{
-  aspect-ratio:auto;
+  aspect-ratio:4 / 3;
+  overflow:hidden;
   background:#111;
 }
-.project-card-button[data-project-open="gazipur-apartment"] .project-card-image img,
+.project-card-button[data-project-open="gazipur-apartment"] .project-card-image img{
+  width:100%;
+  height:100%;
+  aspect-ratio:4 / 3;
+  object-fit:cover;
+  object-position:center;
+}
+#project-dialog-gazipur-apartment .project-dialog-hero{min-height:0;background:#111}
 #project-dialog-gazipur-apartment .project-dialog-hero > img,
 #project-dialog-gazipur-apartment .project-dialog-gallery img{
   width:100%;
@@ -1136,7 +1144,6 @@ body.project-dialog-open{overflow:hidden}
   object-position:center;
   background:#111;
 }
-#project-dialog-gazipur-apartment .project-dialog-hero{min-height:0;background:#111}
 
 @media(max-width:1000px){
   #leadership .leadership{
@@ -1174,6 +1181,21 @@ body.project-dialog-open{overflow:hidden}
   #leadership .leadership-visual{
     width:100%;
     max-width:none;
+  }
+}
+
+
+/* Project gallery quality pass */
+#project-dialog-tongi-fitout .project-dialog-gallery{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+#project-dialog-kaliakair-renovation .project-dialog-gallery{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+@media(max-width:700px){
+  #project-dialog-tongi-fitout .project-dialog-gallery,
+  #project-dialog-kaliakair-renovation .project-dialog-gallery{
+    grid-template-columns:1fr;
   }
 }
 
@@ -1370,7 +1392,7 @@ body.project-dialog-open{overflow:hidden}
 </button>
 <button aria-haspopup="dialog" class="project-card-button" data-project-open="kaliakair-renovation" type="button">
 <span class="project-card-image">
-<img alt="Commercial Building Renovation project preview" decoding="async" height="900" loading="lazy" src="/assets/project-kaliakair-renovation-01.webp" width="1200"/>
+<img alt="Commercial Building Renovation project preview" decoding="async" height="900" loading="lazy" src="/assets/project-kaliakair-renovation-02.webp" width="1200"/>
 <span class="project-card-overlay">View Project</span>
 </span>
 <span class="project-card-copy">
@@ -1461,7 +1483,7 @@ body.project-dialog-open{overflow:hidden}
 <div class="span-2"><dt>Scope</dt><dd>Interior Fit-out · Partition · MEP · Lighting · Custom Joinery · Finishing</dd></div>
 </dl>
 <div class="project-dialog-gallery">
-<figure><img alt="Commercial Interior Fit-Out — Progress view 01" data-src="/assets/project-tongi-fitout-02.webp" decoding="async" height="900" loading="lazy" width="1200"/><figcaption>Base interior condition</figcaption></figure><figure><img alt="Commercial Interior Fit-Out — Progress view 02" data-src="/assets/project-tongi-fitout-03.webp" decoding="async" height="900" loading="lazy" width="1200"/><figcaption>MEP &amp; ceiling services</figcaption></figure><figure><img alt="Commercial Interior Fit-Out — Progress view 03" data-src="/assets/project-tongi-fitout-04.webp" decoding="async" height="900" loading="lazy" width="1200"/><figcaption>Ceiling/partition installation</figcaption></figure><figure><img alt="Commercial Interior Fit-Out — Progress view 04" data-src="/assets/project-tongi-fitout-05.webp" decoding="async" height="900" loading="lazy" width="1200"/><figcaption>Reception finishing</figcaption></figure><figure><img alt="Commercial Interior Fit-Out — Progress view 05" data-src="/assets/project-tongi-fitout-06.webp" decoding="async" height="900" loading="lazy" width="1200"/><figcaption>Completed office workspace</figcaption></figure>
+<figure><img alt="Commercial Interior Fit-Out — Base interior condition" data-src="/assets/project-tongi-fitout-02.webp" decoding="async" height="900" loading="lazy" width="1200"/><figcaption>Base Interior Condition</figcaption></figure><figure><img alt="Commercial Interior Fit-Out — Reception finishing" data-src="/assets/project-tongi-fitout-05.webp" decoding="async" height="900" loading="lazy" width="1200"/><figcaption>Reception Finishing</figcaption></figure><figure><img alt="Commercial Interior Fit-Out — Completed office workspace" data-src="/assets/project-tongi-fitout-06.webp" decoding="async" height="900" loading="lazy" width="1200"/><figcaption>Completed Office Workspace</figcaption></figure>
 </div>
 <p class="project-dialog-disclosure">Illustrative portfolio example using generated/separated visual assets and sample commercial data. It is not presented as verified original project evidence.</p>
 </div>
@@ -1500,7 +1522,7 @@ body.project-dialog-open{overflow:hidden}
 <div class="project-dialog-shell">
 <button aria-label="Close project details" class="project-dialog-close" data-project-close="" type="button">×</button>
 <div class="project-dialog-hero">
-<img alt="Commercial Building Renovation project image" data-src="/assets/project-kaliakair-renovation-01.webp" decoding="async" height="900" loading="lazy" width="1200"/>
+<img alt="Commercial Building Renovation project image" data-src="/assets/project-kaliakair-renovation-02.webp" decoding="async" height="900" loading="lazy" width="1200"/>
 <div class="project-dialog-heading">
 <span>Renovation &amp; Refurbishment</span>
 <h3 id="project-dialog-title-kaliakair-renovation">Commercial Building Renovation</h3>
@@ -1519,7 +1541,7 @@ body.project-dialog-open{overflow:hidden}
 <div class="span-2"><dt>Scope</dt><dd>Structural Repair · Facade Renovation · Waterproofing · MEP Upgrade · Interior Finishing</dd></div>
 </dl>
 <div class="project-dialog-gallery">
-<figure><img alt="Commercial Building Renovation — Progress view 01" data-src="/assets/project-kaliakair-renovation-02.webp" decoding="async" height="900" loading="lazy" width="1200"/><figcaption>Existing building condition</figcaption></figure><figure><img alt="Commercial Building Renovation — Progress view 02" data-src="/assets/project-kaliakair-renovation-03.webp" decoding="async" height="900" loading="lazy" width="1200"/><figcaption>Structural repair work</figcaption></figure><figure><img alt="Commercial Building Renovation — Progress view 03" data-src="/assets/project-kaliakair-renovation-04.webp" decoding="async" height="900" loading="lazy" width="1200"/><figcaption>Facade / scaffold work</figcaption></figure><figure><img alt="Commercial Building Renovation — Progress view 04" data-src="/assets/project-kaliakair-renovation-05.webp" decoding="async" height="900" loading="lazy" width="1200"/><figcaption>Repair &amp; MEP coordination</figcaption></figure><figure><img alt="Commercial Building Renovation — Progress view 05" data-src="/assets/project-kaliakair-renovation-06.webp" decoding="async" height="900" loading="lazy" width="1200"/><figcaption>Finished renovated interior</figcaption></figure>
+<figure><img alt="Commercial Building Renovation — Structural repair work" data-src="/assets/project-kaliakair-renovation-03.webp" decoding="async" height="900" loading="lazy" width="1200"/><figcaption>Structural Repair Work</figcaption></figure><figure><img alt="Commercial Building Renovation — Finished renovated interior" data-src="/assets/project-kaliakair-renovation-06.webp" decoding="async" height="900" loading="lazy" width="1200"/><figcaption>Finished Renovated Interior</figcaption></figure>
 </div>
 <p class="project-dialog-disclosure">Illustrative portfolio example using generated/separated visual assets and sample commercial data. It is not presented as verified original project evidence.</p>
 </div>
