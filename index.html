@@ -682,6 +682,394 @@ button:focus-visible{
   outline-offset:4px !important;
 }
 
+
+/* Verified project evidence */
+.section-lead{
+  max-width:780px;
+  color:var(--muted);
+  font-size:1.05rem;
+  line-height:1.8;
+  margin:1.2rem 0 2.5rem;
+}
+.evidence-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:1rem;
+}
+.evidence-card{
+  border:1px solid var(--line);
+  padding:1.5rem;
+  min-height:100%;
+  background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.01));
+}
+.evidence-step{
+  font-family:'Cinzel',serif;
+  color:var(--accent);
+  font-size:.78rem;
+  letter-spacing:.15em;
+  margin-bottom:1rem;
+}
+.evidence-card h3{font-size:1.2rem;margin-bottom:.65rem}
+.evidence-card p{color:var(--muted);font-size:.92rem;line-height:1.65}
+.evidence-list{
+  list-style:none;
+  padding:0;
+  margin:1rem 0 0;
+  display:grid;
+  gap:.55rem;
+  color:#d9d4cc;
+  font-size:.88rem;
+}
+.evidence-list li{
+  position:relative;
+  padding-left:1rem;
+}
+.evidence-list li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.65em;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:var(--accent);
+}
+.evidence-policy{
+  margin-top:1.25rem;
+  padding:1.25rem 1.4rem;
+  border:1px solid rgba(201,163,90,.35);
+  background:rgba(201,163,90,.05);
+}
+.evidence-policy>div{display:flex;align-items:center;gap:.65rem;margin-bottom:.5rem}
+.evidence-policy p{color:var(--muted);margin:0;line-height:1.7}
+.status-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(201,163,90,.08)}
+.case-study-template{
+  margin-top:1rem;
+  border:1px solid var(--line);
+  padding:0;
+}
+.case-study-template summary{
+  cursor:pointer;
+  padding:1rem 1.2rem;
+  font-weight:600;
+}
+.case-study-spec{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0;
+  border-top:1px solid var(--line);
+}
+.case-study-spec div{
+  display:grid;
+  grid-template-columns:120px 1fr;
+  gap:1rem;
+  padding:1rem 1.2rem;
+  border-bottom:1px solid var(--line);
+}
+.case-study-spec div:nth-last-child(-n+2){border-bottom:0}
+.case-study-spec span{color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em}
+.case-study-spec strong{font-size:.9rem;font-weight:500}
+
+/* Project inquiry */
+.project-form{
+  margin-top:2rem;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.015);
+}
+.form-progress{
+  display:grid;
+  grid-template-columns:auto 1fr auto 1fr auto 1fr auto;
+  align-items:center;
+  gap:.5rem;
+  padding:1.2rem 1.4rem;
+  border-bottom:1px solid var(--line);
+}
+.progress-step{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  color:var(--muted);
+  font-size:.85rem;
+}
+.progress-step small{
+  position:absolute;
+  top:48px;
+  white-space:nowrap;
+  font-size:.67rem;
+  color:var(--muted);
+  font-weight:400;
+}
+.progress-step.is-active,
+.progress-step.is-complete{
+  border-color:var(--accent);
+  color:var(--accent);
+}
+.progress-step.is-complete{background:rgba(201,163,90,.09)}
+.progress-line{height:1px;background:var(--line)}
+.form-step{display:none;padding:2.4rem 1.5rem 1.5rem}
+.form-step.is-active{display:block}
+.form-step-heading{max-width:720px;margin-bottom:1.75rem}
+.form-step-heading>span{
+  display:block;color:var(--accent);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.45rem
+}
+.form-step-heading h3{font-size:1.6rem;margin-bottom:.5rem}
+.form-step-heading p{color:var(--muted);line-height:1.7}
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem;
+}
+.form-grid label,
+.service-checks label{
+  display:grid;
+  gap:.5rem;
+  color:#e8e3db;
+  font-size:.88rem;
+}
+.form-grid b,
+.service-checks b{color:var(--accent)}
+.form-grid input,
+.form-grid select,
+.form-grid textarea{
+  width:100%;
+  min-height:48px;
+  border:1px solid var(--line);
+  background:#0d0d0d;
+  color:var(--fg);
+  padding:.8rem .9rem;
+  font:inherit;
+  border-radius:0;
+}
+.form-grid textarea{resize:vertical;min-height:110px}
+.form-grid input::placeholder,
+.form-grid textarea::placeholder{color:#77736d}
+.form-grid input:focus,
+.form-grid select:focus,
+.form-grid textarea:focus{
+  border-color:var(--accent);
+  outline:2px solid rgba(201,163,90,.18);
+  outline-offset:0;
+}
+.span-2{grid-column:1/-1}
+.service-checks{
+  border:1px solid var(--line);
+  padding:1rem;
+  margin:0 0 1rem;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:.75rem 1rem;
+}
+.service-checks legend{padding:0 .4rem;font-weight:600}
+.service-checks label{
+  grid-template-columns:auto 1fr;
+  align-items:start;
+  gap:.6rem;
+  color:#d9d4cc;
+}
+.service-checks input{margin-top:.2rem}
+.attachment-note{
+  margin-top:1rem;
+  display:grid;
+  gap:.35rem;
+  padding:1rem;
+  border-left:2px solid var(--accent);
+  background:rgba(201,163,90,.05);
+}
+.attachment-note span{color:var(--muted);line-height:1.6}
+.consent-row{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:.7rem;
+  align-items:start;
+  margin-top:1rem;
+  color:var(--muted);
+  font-size:.86rem;
+}
+.consent-row input{margin-top:.2rem}
+.inquiry-summary{
+  margin-top:1rem;
+  color:var(--muted);
+  font-size:.86rem;
+}
+.form-actions{
+  display:flex;
+  justify-content:space-between;
+  gap:.8rem;
+  padding:1rem 1.5rem 1.5rem;
+}
+.form-actions .form-next,
+.form-actions .form-submit{margin-left:auto}
+.inquiry-trust{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  margin-top:1.25rem;
+}
+.inquiry-trust div{
+  display:grid;
+  gap:.35rem;
+  padding:1rem;
+  background:var(--bg);
+}
+.inquiry-trust strong{font-family:'Cinzel',serif;color:var(--accent)}
+.inquiry-trust span{font-size:.83rem;color:var(--muted)}
+
+@media(max-width:1000px){
+  .evidence-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .inquiry-trust{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  .evidence-grid,
+  .form-grid,
+  .service-checks,
+  .case-study-spec,
+  .inquiry-trust{grid-template-columns:1fr}
+  .span-2{grid-column:auto}
+  .case-study-spec div{grid-template-columns:1fr;gap:.35rem}
+  .case-study-spec div:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+  .case-study-spec div:last-child{border-bottom:0}
+  .form-progress{padding:1rem .8rem}
+  .progress-step{width:36px;height:36px}
+  .progress-step small{display:none}
+  .form-step{padding:1.6rem 1rem 1rem}
+  .form-actions{padding:1rem;flex-wrap:wrap}
+  .form-actions .btn{width:100%}
+  .form-actions .form-next,
+  .form-actions .form-submit{margin-left:0}
+}
+
+
+/* Featured real-project record */
+.featured-project{
+  margin:2rem 0 2.5rem;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.01));
+  overflow:hidden;
+}
+.featured-project-media{
+  position:relative;
+  background:#111;
+}
+.featured-project-media>img{
+  width:100%;
+  height:auto;
+  display:block;
+  aspect-ratio:4/3;
+  object-fit:cover;
+}
+.project-status{
+  position:absolute;
+  left:1rem;
+  bottom:1rem;
+  display:flex;
+  align-items:center;
+  gap:.55rem;
+  padding:.65rem .8rem;
+  background:rgba(8,8,8,.82);
+  border:1px solid rgba(255,255,255,.18);
+  color:#fff;
+  font-size:.78rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+.project-status span{
+  width:7px;height:7px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 4px rgba(201,163,90,.12);
+}
+.featured-project-content{padding:1.7rem}
+.project-kicker{
+  color:var(--accent);
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  margin-bottom:.65rem;
+}
+.featured-project-content h3{
+  font-family:'Cinzel',serif;
+  font-size:clamp(2rem,4vw,3.1rem);
+  font-weight:500;
+  margin:0 0 .8rem;
+}
+.project-summary{
+  max-width:760px;
+  color:var(--muted);
+  line-height:1.75;
+  font-size:1rem;
+}
+.project-facts{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0;
+  margin:1.5rem 0 0;
+  border-top:1px solid var(--line);
+}
+.project-facts>div{
+  display:grid;
+  grid-template-columns:145px 1fr;
+  gap:1rem;
+  padding:.9rem 0;
+  border-bottom:1px solid var(--line);
+}
+.project-facts>div:nth-child(odd){padding-right:1.2rem}
+.project-facts>div:nth-child(even){padding-left:1.2rem;border-left:1px solid var(--line)}
+.project-facts dt{
+  color:var(--muted);
+  font-size:.76rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.project-facts dd{margin:0;color:#eee9e1;font-size:.92rem}
+.project-facts dd span{display:block;color:var(--muted);font-size:.82rem;margin-top:.2rem}
+.project-scope-block{
+  margin-top:1.3rem;
+  padding:1rem 1.1rem;
+  border-left:2px solid var(--accent);
+  background:rgba(201,163,90,.05);
+}
+.project-scope-block h4{margin:0 0 .4rem;font-size:.95rem}
+.project-scope-block p{margin:0;color:var(--muted);line-height:1.65}
+.project-gallery{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1px;
+  background:var(--line);
+  border-top:1px solid var(--line);
+}
+.project-gallery figure{margin:0;background:var(--bg)}
+.project-gallery img{
+  width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block;
+}
+.project-gallery figcaption{
+  padding:.75rem .85rem;
+  color:#d8d2c9;
+  font-size:.76rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.visual-disclosure{
+  margin:0;
+  padding:1rem 1.2rem;
+  border-top:1px solid var(--line);
+  color:#908b84;
+  font-size:.76rem;
+  line-height:1.6;
+}
+@media(max-width:800px){
+  .project-facts{grid-template-columns:1fr}
+  .project-facts>div:nth-child(odd),
+  .project-facts>div:nth-child(even){padding:.85rem 0;border-left:0}
+  .project-gallery{grid-template-columns:1fr}
+}
+
 </style>
 <link rel="preload" as="video" href="/assets/mridha-construction-intro.mp4" type="video/mp4">
 </head>
@@ -714,8 +1102,9 @@ button:focus-visible{
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#expertise">Expertise</a>
+    <a href="#projects">Projects</a>
     <a href="#leadership">Leadership</a>
-    <a href="#contact">Contact</a>
+    <a href="#project-inquiry">Start a Project</a>
   </nav>
 </header>
 
@@ -847,6 +1236,142 @@ button:focus-visible{
     </div>
   </section>
 
+
+  <section id="projects" aria-labelledby="projects-title">
+    <div class="eyebrow">Verified Project Evidence</div>
+    <h2 id="projects-title">Proof Before Promotion</h2>
+    <p class="section-lead">
+      The project below uses information supplied for the Master Villa project. Project facts are separated from visualizations so the record stays clear and traceable. Additional verified site records can be added as they become available.
+    </p>
+
+
+    <article class="featured-project" aria-labelledby="master-villa-title">
+      <div class="featured-project-media">
+        <img src="/assets/master-villa-main.webp"
+             alt="AI-generated visualization based on the provided Master Villa project details"
+             width="1280" height="960" loading="lazy" decoding="async">
+        <div class="project-status"><span></span> Under Construction</div>
+      </div>
+
+      <div class="featured-project-content">
+        <div class="project-kicker">Residential Project · Phase 1 Completed</div>
+        <h3 id="master-villa-title">Master Villa</h3>
+        <p class="project-summary">
+          A 3-storey residential building project by Mridha Construction and Consultancy. The first-floor construction phase is complete and the project is progressing through the remaining planned stages.
+        </p>
+
+        <dl class="project-facts">
+          <div><dt>Client</dt><dd>Abdul Awal Mridha <span>(Heroic Freedom Fighter)</span></dd></div>
+          <div><dt>Project Company</dt><dd>Mridha Construction and Consultancy</dd></div>
+          <div><dt>Project Value</dt><dd>BDT 47 Lac</dd></div>
+          <div><dt>Building Type</dt><dd>Residential Building</dd></div>
+          <div><dt>Configuration</dt><dd>3-Storey Building</dd></div>
+          <div><dt>Current Progress</dt><dd>1st Floor Completed</dd></div>
+          <div><dt>Current Status</dt><dd>Under Construction</dd></div>
+          <div><dt>Location</dt><dd>Upazila / District to be added</dd></div>
+        </dl>
+
+        <div class="project-scope-block">
+          <h4>Current documented scope</h4>
+          <p>Residential building construction with a planned three-storey configuration. The completed project milestone currently recorded is the first-floor construction phase.</p>
+        </div>
+      </div>
+
+      <div class="project-gallery" aria-label="Master Villa project visualizations">
+        <figure>
+          <img src="/assets/master-villa-exterior.webp" alt="AI-generated exterior visualization of Master Villa construction progress" width="1280" height="960" loading="lazy" decoding="async">
+          <figcaption>Structure in progress</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/master-villa-brickwork.webp" alt="AI-generated visualization of brick masonry work for Master Villa" width="1280" height="960" loading="lazy" decoding="async">
+          <figcaption>Brickwork in progress</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/master-villa-interior.webp" alt="AI-generated interior construction visualization for Master Villa" width="1280" height="960" loading="lazy" decoding="async">
+          <figcaption>Interior construction stage</figcaption>
+        </figure>
+      </div>
+
+      <p class="visual-disclosure">
+        Visual note: the images shown here are AI-generated project visualizations created from the project details provided to Mridha Construction and Consultancy. They are not presented as original site photographs. Actual site photographs can replace them when available.
+      </p>
+    </article>
+
+    <div class="evidence-grid">
+      <article class="evidence-card">
+        <div class="evidence-step">01</div>
+        <h3>Project Identity</h3>
+        <p>Project name, client-approved description, project type and verified location down to district and upazila.</p>
+        <ul class="evidence-list">
+          <li>Project name / reference ID</li>
+          <li>District + Upazila</li>
+          <li>Residential / Commercial / Renovation / Fit-out</li>
+          <li>Start and completion period</li>
+        </ul>
+      </article>
+
+      <article class="evidence-card">
+        <div class="evidence-step">02</div>
+        <h3>Measured Scope</h3>
+        <p>Clear description of what was actually delivered, including project size, services and our role.</p>
+        <ul class="evidence-list">
+          <li>Land / built-up area</li>
+          <li>Number of floors</li>
+          <li>Scope of work</li>
+          <li>Our role and responsibilities</li>
+        </ul>
+      </article>
+
+      <article class="evidence-card">
+        <div class="evidence-step">03</div>
+        <h3>Supporting Evidence</h3>
+        <p>Evidence is matched to the project record before the case study is published.</p>
+        <ul class="evidence-list">
+          <li>Dated site photographs</li>
+          <li>Approved drawings / BOQ / work order</li>
+          <li>Inspection or QA/QC records</li>
+          <li>Handover or completion records, where available</li>
+        </ul>
+      </article>
+
+      <article class="evidence-card">
+        <div class="evidence-step">04</div>
+        <h3>Outcome &amp; Learning</h3>
+        <p>A useful case study explains the project challenge, the technical response and the result without exaggeration.</p>
+        <ul class="evidence-list">
+          <li>Project challenge</li>
+          <li>Engineering / execution solution</li>
+          <li>Quality and schedule controls</li>
+          <li>Final outcome and handover status</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="evidence-policy">
+      <div>
+        <span class="status-dot" aria-hidden="true"></span>
+        <strong>Publication standard</strong>
+      </div>
+      <p>
+        Project facts are published from information supplied for the case study. AI-generated visualizations are labeled clearly and are not represented as original site photographs. Actual site records can replace or supplement the visualizations when available.
+      </p>
+    </div>
+
+    <details class="case-study-template">
+      <summary>What a published project case study will contain</summary>
+      <div class="case-study-spec">
+        <div><span>Project</span><strong>Verified project name</strong></div>
+        <div><span>Location</span><strong>Upazila · District · Bangladesh</strong></div>
+        <div><span>Type</span><strong>Residential / Commercial / Renovation / Fit-out</strong></div>
+        <div><span>Size</span><strong>Land area · Built-up area · Floors</strong></div>
+        <div><span>Scope</span><strong>Planning · BOQ · Construction · QA/QC · Supervision</strong></div>
+        <div><span>Role</span><strong>Exact responsibility delivered by Mridha Construction and Consultancy</strong></div>
+        <div><span>Period</span><strong>Start month/year → Handover month/year</strong></div>
+        <div><span>Evidence</span><strong>Site photos · drawings · BOQ · inspection / handover records</strong></div>
+      </div>
+    </details>
+  </section>
+
   <section id="leadership" aria-labelledby="leadership-title">
     <div class="eyebrow">Engineering Leadership</div>
     <div class="leadership">
@@ -909,6 +1434,313 @@ button:focus-visible{
     </div>
   </section>
 
+
+  <section id="project-inquiry" aria-labelledby="project-inquiry-title">
+    <div class="eyebrow">Upazila-Based Project Inquiry</div>
+    <h2 id="project-inquiry-title">Start with the Site.<br>Build the Right Scope.</h2>
+    <p class="section-lead">
+      Share the project location and the information you already know. The form prepares a structured WhatsApp brief so the first discussion starts with useful project facts instead of scattered messages.
+    </p>
+
+    <form id="project-inquiry-form" class="project-form" novalidate>
+      <div class="form-progress" aria-label="Project inquiry progress">
+        <span class="progress-step is-active" data-step-indicator="1">1 <small>Location</small></span>
+        <span class="progress-line" aria-hidden="true"></span>
+        <span class="progress-step" data-step-indicator="2">2 <small>Project</small></span>
+        <span class="progress-line" aria-hidden="true"></span>
+        <span class="progress-step" data-step-indicator="3">3 <small>Scope</small></span>
+        <span class="progress-line" aria-hidden="true"></span>
+        <span class="progress-step" data-step-indicator="4">4 <small>Contact</small></span>
+      </div>
+
+      <div class="form-step is-active" data-form-step="1">
+        <div class="form-step-heading">
+          <span>Step 1 of 4</span>
+          <h3>Project location</h3>
+          <p>Upazila-level location helps us understand site access, travel, local coordination and project feasibility.</p>
+        </div>
+
+        <div class="form-grid">
+          <label>
+            Division <b>*</b>
+            <select name="division" required>
+              <option value="">Select division</option>
+              <option>Barishal</option>
+              <option>Chattogram</option>
+              <option>Dhaka</option>
+              <option>Khulna</option>
+              <option>Mymensingh</option>
+              <option>Rajshahi</option>
+              <option>Rangpur</option>
+              <option>Sylhet</option>
+            </select>
+          </label>
+
+          <label>
+            District <b>*</b>
+            <input name="district" autocomplete="address-level2" placeholder="e.g. Gazipur" required>
+          </label>
+
+          <label>
+            Upazila / Thana <b>*</b>
+            <input name="upazila" autocomplete="address-level3" placeholder="e.g. Sreepur" required>
+          </label>
+
+          <label>
+            Union / Ward
+            <input name="union_ward" placeholder="Optional">
+          </label>
+
+          <label class="span-2">
+            Site address / landmark
+            <input name="site_address" autocomplete="street-address" placeholder="Road, village, mouza, landmark or nearby location">
+          </label>
+
+          <label class="span-2">
+            Google Maps link
+            <input name="maps_link" inputmode="url" placeholder="Optional site pin / maps link">
+          </label>
+        </div>
+      </div>
+
+      <div class="form-step" data-form-step="2">
+        <div class="form-step-heading">
+          <span>Step 2 of 4</span>
+          <h3>Project basics</h3>
+          <p>Use approximate values if the design is not final yet.</p>
+        </div>
+
+        <div class="form-grid">
+          <label>
+            Project type <b>*</b>
+            <select name="project_type" required>
+              <option value="">Select project type</option>
+              <option>Residential Building</option>
+              <option>Commercial Building</option>
+              <option>Mixed-Use Building</option>
+              <option>Renovation / Refurbishment</option>
+              <option>Interior Fit-Out</option>
+              <option>Boundary Wall / Site Development</option>
+              <option>Other</option>
+            </select>
+          </label>
+
+          <label>
+            Current stage <b>*</b>
+            <select name="project_stage" required>
+              <option value="">Select current stage</option>
+              <option>Initial idea / feasibility</option>
+              <option>Land purchased / site available</option>
+              <option>Concept or design ongoing</option>
+              <option>Drawings completed</option>
+              <option>Approval / tender stage</option>
+              <option>Construction ongoing</option>
+              <option>Renovation / repair stage</option>
+            </select>
+          </label>
+
+          <label>
+            Land size
+            <input name="land_size" inputmode="decimal" placeholder="e.g. 5">
+          </label>
+
+          <label>
+            Land unit
+            <select name="land_unit">
+              <option>Decimal</option>
+              <option>Katha</option>
+              <option>Bigha</option>
+              <option>Square feet</option>
+              <option>Square metre</option>
+            </select>
+          </label>
+
+          <label>
+            Approx. built-up area
+            <input name="built_area" inputmode="decimal" placeholder="e.g. 6500">
+          </label>
+
+          <label>
+            Area unit
+            <select name="area_unit">
+              <option>sq ft</option>
+              <option>sq m</option>
+            </select>
+          </label>
+
+          <label>
+            Proposed / existing floors
+            <input name="floors" inputmode="numeric" placeholder="e.g. G+4">
+          </label>
+
+          <label>
+            Structure
+            <select name="structure">
+              <option value="">Not decided</option>
+              <option>RCC</option>
+              <option>Steel</option>
+              <option>Mixed / Composite</option>
+              <option>Existing structure</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-step" data-form-step="3">
+        <div class="form-step-heading">
+          <span>Step 3 of 4</span>
+          <h3>Required scope, budget &amp; timeline</h3>
+          <p>Select everything you want us to consider. Final scope is confirmed after review.</p>
+        </div>
+
+        <fieldset class="service-checks">
+          <legend>Services required <b>*</b></legend>
+          <label><input type="checkbox" name="services" value="Site assessment / feasibility"> Site assessment / feasibility</label>
+          <label><input type="checkbox" name="services" value="Planning / design coordination"> Planning / design coordination</label>
+          <label><input type="checkbox" name="services" value="BOQ / estimation"> BOQ / estimation</label>
+          <label><input type="checkbox" name="services" value="Project scheduling"> Project scheduling</label>
+          <label><input type="checkbox" name="services" value="Building construction"> Building construction</label>
+          <label><input type="checkbox" name="services" value="Site supervision"> Site supervision</label>
+          <label><input type="checkbox" name="services" value="QA/QC inspection"> QA/QC inspection</label>
+          <label><input type="checkbox" name="services" value="Interior fit-out"> Interior fit-out</label>
+          <label><input type="checkbox" name="services" value="Renovation / refurbishment"> Renovation / refurbishment</label>
+          <label><input type="checkbox" name="services" value="Handover documentation"> Handover documentation</label>
+        </fieldset>
+
+        <div class="form-grid">
+          <label>
+            Budget range
+            <select name="budget">
+              <option value="">Prefer to discuss</option>
+              <option>Below BDT 10 lakh</option>
+              <option>BDT 10–25 lakh</option>
+              <option>BDT 25–50 lakh</option>
+              <option>BDT 50 lakh–1 crore</option>
+              <option>BDT 1–3 crore</option>
+              <option>Above BDT 3 crore</option>
+            </select>
+          </label>
+
+          <label>
+            Target start
+            <input type="month" name="target_start">
+          </label>
+
+          <label>
+            Target completion
+            <input type="month" name="target_completion">
+          </label>
+
+          <label>
+            Drawings available?
+            <select name="drawings">
+              <option value="">Select</option>
+              <option>No drawings yet</option>
+              <option>Concept / preliminary drawings</option>
+              <option>Architectural drawings available</option>
+              <option>Architectural + structural drawings available</option>
+              <option>Complete drawing set available</option>
+            </select>
+          </label>
+
+          <label>
+            Soil test
+            <select name="soil_test">
+              <option value="">Not sure / not applicable</option>
+              <option>Not done</option>
+              <option>Planned</option>
+              <option>Completed</option>
+            </select>
+          </label>
+
+          <label>
+            Approval status
+            <select name="approval_status">
+              <option value="">Not sure / not applicable</option>
+              <option>Not started</option>
+              <option>In process</option>
+              <option>Approved</option>
+            </select>
+          </label>
+
+          <label class="span-2">
+            Site constraints / access notes
+            <textarea name="constraints" rows="4" placeholder="Narrow road, occupied building, material access, existing utilities, boundary issue, working-hour restrictions, etc."></textarea>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-step" data-form-step="4">
+        <div class="form-step-heading">
+          <span>Step 4 of 4</span>
+          <h3>Contact &amp; project brief</h3>
+          <p>Your inquiry will be prepared as a structured WhatsApp message. You can attach drawings, photos and documents after WhatsApp opens.</p>
+        </div>
+
+        <div class="form-grid">
+          <label>
+            Your name <b>*</b>
+            <input name="client_name" autocomplete="name" required>
+          </label>
+
+          <label>
+            Mobile number <b>*</b>
+            <input name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+880..." required>
+          </label>
+
+          <label>
+            Preferred contact
+            <select name="contact_method">
+              <option>WhatsApp</option>
+              <option>Phone call</option>
+              <option>Either</option>
+            </select>
+          </label>
+
+          <label>
+            Best contact time
+            <select name="contact_time">
+              <option>Anytime</option>
+              <option>Morning</option>
+              <option>Afternoon</option>
+              <option>Evening</option>
+            </select>
+          </label>
+
+          <label class="span-2">
+            Additional project notes
+            <textarea name="notes" rows="5" placeholder="Tell us what you want to achieve, key concerns, or any decision you need help with."></textarea>
+          </label>
+        </div>
+
+        <div class="attachment-note">
+          <strong>After WhatsApp opens, attach where available:</strong>
+          <span>site photos · land papers/site plan · architectural drawings · structural drawings · BOQ · existing condition photos · soil test · approval documents</span>
+        </div>
+
+        <label class="consent-row">
+          <input type="checkbox" name="consent" required>
+          <span>I confirm that the information above is provided for a project discussion and may be used to contact me about this inquiry.</span>
+        </label>
+
+        <div class="inquiry-summary" id="inquiry-summary" aria-live="polite"></div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary form-back" hidden>Back</button>
+        <button type="button" class="btn btn-primary form-next">Continue</button>
+        <button type="submit" class="btn btn-primary form-submit" hidden>Prepare WhatsApp Inquiry</button>
+      </div>
+    </form>
+
+    <div class="inquiry-trust">
+      <div><strong>1</strong><span>Upazila-level site location</span></div>
+      <div><strong>2</strong><span>Scope and project stage</span></div>
+      <div><strong>3</strong><span>Budget and timeline context</span></div>
+      <div><strong>4</strong><span>Structured first discussion</span></div>
+    </div>
+  </section>
+
   <div class="cta" id="contact">
     <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=2000&q=86" alt="Concrete architecture" loading="lazy" decoding="async">
     <h2>Build Something<br>That Endures</h2>
@@ -932,8 +1764,9 @@ button:focus-visible{
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#expertise">Expertise</a>
+    <a href="#projects">Projects</a>
     <a href="#leadership">Leadership</a>
-    <a href="#contact">Contact</a>
+    <a href="#project-inquiry">Start a Project</a>
   </div>
   <div>
     <h4>Core Services</h4>
@@ -1049,6 +1882,122 @@ button:focus-visible{
   video.addEventListener('error', finish, { once:true });
   video.play().catch(finish);
   setTimeout(finish, 3200);
+})();
+</script>
+
+
+<script>
+(() => {
+  const form = document.getElementById('project-inquiry-form');
+  if (!form) return;
+
+  const steps = [...form.querySelectorAll('[data-form-step]')];
+  const indicators = [...form.querySelectorAll('[data-step-indicator]')];
+  const backBtn = form.querySelector('.form-back');
+  const nextBtn = form.querySelector('.form-next');
+  const submitBtn = form.querySelector('.form-submit');
+  const summary = document.getElementById('inquiry-summary');
+  let current = 0;
+
+  const showStep = (index) => {
+    current = Math.max(0, Math.min(index, steps.length - 1));
+    steps.forEach((step, i) => step.classList.toggle('is-active', i === current));
+    indicators.forEach((indicator, i) => {
+      indicator.classList.toggle('is-active', i === current);
+      indicator.classList.toggle('is-complete', i < current);
+    });
+    backBtn.hidden = current === 0;
+    nextBtn.hidden = current === steps.length - 1;
+    submitBtn.hidden = current !== steps.length - 1;
+    steps[current].querySelector('input,select,textarea')?.focus({preventScroll:true});
+    form.scrollIntoView({behavior:'smooth', block:'start'});
+  };
+
+  const validateStep = () => {
+    const active = steps[current];
+    const fields = [...active.querySelectorAll('input,select,textarea')];
+    for (const field of fields) {
+      if (!field.checkValidity()) {
+        field.reportValidity();
+        field.focus();
+        return false;
+      }
+    }
+
+    if (current === 2) {
+      const serviceChecked = active.querySelector('input[name="services"]:checked');
+      if (!serviceChecked) {
+        summary.textContent = 'Please select at least one required service.';
+        active.querySelector('input[name="services"]')?.focus();
+        return false;
+      }
+    }
+    summary.textContent = '';
+    return true;
+  };
+
+  nextBtn.addEventListener('click', () => {
+    if (validateStep()) showStep(current + 1);
+  });
+
+  backBtn.addEventListener('click', () => showStep(current - 1));
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (!validateStep()) return;
+
+    const data = new FormData(form);
+    const services = [...form.querySelectorAll('input[name="services"]:checked')].map(el => el.value);
+
+    const line = (label, value) => value ? `${label}: ${value}` : null;
+
+    const message = [
+      'Hello Mridha Construction and Consultancy,',
+      '',
+      'I would like to discuss a project.',
+      '',
+      'PROJECT LOCATION',
+      line('Division', data.get('division')),
+      line('District', data.get('district')),
+      line('Upazila / Thana', data.get('upazila')),
+      line('Union / Ward', data.get('union_ward')),
+      line('Site address / landmark', data.get('site_address')),
+      line('Google Maps link', data.get('maps_link')),
+      '',
+      'PROJECT BASICS',
+      line('Project type', data.get('project_type')),
+      line('Current stage', data.get('project_stage')),
+      line('Land size', data.get('land_size') ? `${data.get('land_size')} ${data.get('land_unit')}` : ''),
+      line('Approx. built-up area', data.get('built_area') ? `${data.get('built_area')} ${data.get('area_unit')}` : ''),
+      line('Floors', data.get('floors')),
+      line('Structure', data.get('structure')),
+      '',
+      'REQUIRED SCOPE',
+      services.length ? `Services: ${services.join(', ')}` : null,
+      line('Budget range', data.get('budget')),
+      line('Target start', data.get('target_start')),
+      line('Target completion', data.get('target_completion')),
+      line('Drawings', data.get('drawings')),
+      line('Soil test', data.get('soil_test')),
+      line('Approval status', data.get('approval_status')),
+      line('Site constraints', data.get('constraints')),
+      '',
+      'CONTACT',
+      line('Name', data.get('client_name')),
+      line('Mobile', data.get('phone')),
+      line('Preferred contact', data.get('contact_method')),
+      line('Best contact time', data.get('contact_time')),
+      line('Additional notes', data.get('notes')),
+      '',
+      'I can attach drawings/photos/documents in WhatsApp after this message.'
+    ].filter(v => v !== null).join('\n');
+
+    const url = `https://wa.me/8801911620138?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank', 'noopener');
+    summary.textContent = 'Your structured inquiry is ready. WhatsApp should open in a new tab.';
+  });
+
+  showStep(0);
 })();
 </script>
 
