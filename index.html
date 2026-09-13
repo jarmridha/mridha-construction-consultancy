@@ -494,6 +494,31 @@ body.site-intro-active{
   body.site-intro-active{overflow:auto!important;}
 }
 
+
+/* FIX: marked two-image row — remove excess blank space and keep full poster visible */
+#about .grid-2{
+  align-items:start !important;
+  gap:1.25rem !important;
+}
+#about .grid-2 .about-poster{
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  aspect-ratio:auto !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  padding:0 !important;
+  margin:0 !important;
+  display:block !important;
+  background:transparent !important;
+}
+@media(max-width:800px){
+  #about .grid-2{
+    gap:1rem !important;
+  }
+}
+
 </style>
 <link rel="preload" as="video" href="/assets/mridha-construction-intro.mp4" type="video/mp4">
 </head>
