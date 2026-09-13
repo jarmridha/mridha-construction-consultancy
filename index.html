@@ -11,7 +11,6 @@
 <meta name="robots" content="index,follow,max-image-preview:large">
 
 <link rel="canonical" href="https://mridha-construction-consultancy.mridhacc.workers.dev/">
-<link rel="preload" as="image" href="/assets/hero.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet">
@@ -613,6 +612,76 @@ body.site-intro-active{
   }
 }
 
+
+/* PRIORITY FIXES — canonical responsive poster/media rules */
+#about .grid-2,
+#expertise .projects-grid{
+  align-items:start !important;
+}
+#about .about-poster,
+#expertise .project-poster,
+.commitment .commitment-poster{
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  aspect-ratio:auto !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  padding:0 !important;
+  margin:0 !important;
+  background:transparent !important;
+}
+#services .service-row{
+  grid-template-columns:64px minmax(0,1fr) 210px !important;
+  align-items:center !important;
+  gap:1.25rem !important;
+}
+#services .service-poster{
+  display:block !important;
+  width:210px !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  aspect-ratio:auto !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  padding:0 !important;
+  margin:0 !important;
+  background:transparent !important;
+}
+#services .service-poster-square{
+  aspect-ratio:1/1 !important;
+}
+@media(max-width:800px){
+  #about .grid-2,
+  #expertise .projects-grid,
+  #services .service-row{
+    grid-template-columns:1fr !important;
+  }
+  #services .service-poster,
+  #services .service-poster-square{
+    width:min(100%,420px) !important;
+    margin:.5rem auto 0 !important;
+  }
+  #about .about-poster,
+  #expertise .project-poster,
+  .commitment .commitment-poster{
+    width:min(100%,560px) !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+}
+
+
+/* Accessibility focus visibility */
+a:focus-visible,
+button:focus-visible{
+  outline:2px solid var(--accent) !important;
+  outline-offset:4px !important;
+}
+
 </style>
 <link rel="preload" as="video" href="/assets/mridha-construction-intro.mp4" type="video/mp4">
 </head>
@@ -667,8 +736,8 @@ body.site-intro-active{
     <p class="tagline">Built with purpose.<br>Finished with precision.</p>
 
     <div class="grid-2">
-      <img class="about-poster" src="/assets/almost-there-poster.png" alt="Construction-themed promotional poster showing an unfinished staircase and the message Almost there" width="1122" height="1402" loading="lazy" decoding="async">
-      <img class="about-poster" src="/assets/dream-home-poster.png" alt="Promotional poster showing a family in front of a dream home with brickwork framing the scene" width="1122" height="1402" loading="lazy" decoding="async">
+      <img class="about-poster" src="/assets/almost-there-poster.webp" alt="Construction-themed promotional poster showing an unfinished staircase and the message Almost there" width="1122" height="1402" loading="lazy" decoding="async">
+      <img class="about-poster" src="/assets/dream-home-poster.webp" alt="Promotional poster showing a family in front of a dream home with brickwork framing the scene" width="1122" height="1402" loading="lazy" decoding="async">
     </div>
 
     <a class="link-arrow" href="#services">Explore our services ↗</a>
@@ -682,37 +751,37 @@ body.site-intro-active{
       <article class="service-row">
         <div class="service-num">01</div>
         <div><h3>Building Construction</h3><p>Structured execution from site preparation and structural work through finishing, coordination and handover.</p></div>
-        <img class="service-poster" src="/assets/building-tomorrow-poster.png" width="1122" height="1402" alt="Promotional poster showing workers on a building structure with the title Building Tomorrow" loading="lazy" decoding="async">
+        <img class="service-poster" src="/assets/building-tomorrow-poster.webp" width="1122" height="1402" alt="Promotional poster showing workers on a building structure with the title Building Tomorrow" loading="lazy" decoding="async">
       </article>
 
       <article class="service-row">
         <div class="service-num">02</div>
         <div><h3>Engineering Consultancy</h3><p>Practical technical guidance for feasibility, design coordination, drawing review, site planning and construction decisions.</p></div>
-        <img class="service-poster" src="/assets/building-trust-poster.png" width="1122" height="1402" alt="Promotional poster showing a handshake at a construction site with the message Building trust, hand in hand" loading="lazy" decoding="async">
+        <img class="service-poster" src="/assets/building-trust-poster.webp" width="1122" height="1402" alt="Promotional poster showing a handshake at a construction site with the message Building trust, hand in hand" loading="lazy" decoding="async">
       </article>
 
       <article class="service-row">
         <div class="service-num">03</div>
         <div><h3>Planning, Estimation &amp; BOQ</h3><p>Quantity take-off, BOQ preparation, cost planning and scheduling to establish a clearer scope before execution begins.</p></div>
-        <img class="service-poster" src="/assets/strong-foundations-poster.png" width="1122" height="1402" alt="Promotional poster showing construction bricks and a trowel with the message Strong Foundations, Brighter Tomorrows" loading="lazy" decoding="async">
+        <img class="service-poster" src="/assets/strong-foundations-poster.webp" width="1122" height="1402" alt="Promotional poster showing construction bricks and a trowel with the message Strong Foundations, Brighter Tomorrows" loading="lazy" decoding="async">
       </article>
 
       <article class="service-row">
         <div class="service-num">04</div>
         <div><h3>Project Management &amp; QA/QC</h3><p>Site supervision, quality inspections, progress coordination, documentation and control focused on compliant delivery.</p></div>
-        <img class="service-poster service-poster-square" src="/assets/safety-first-poster.png" width="1254" height="1254" alt="Promotional poster showing a safety helmet with the message Safety First: Designing Secure Spaces" loading="lazy" decoding="async">
+        <img class="service-poster service-poster-square" src="/assets/safety-first-poster.webp" width="1254" height="1254" alt="Promotional poster showing a safety helmet with the message Safety First: Designing Secure Spaces" loading="lazy" decoding="async">
       </article>
 
       <article class="service-row">
         <div class="service-num">05</div>
         <div><h3>Interior Fit-Out</h3><p>Coordinated interior execution where materials, finishes, services and details come together in a practical, buildable solution.</p></div>
-        <img class="service-poster" src="/assets/almost-there-poster.png" width="1122" height="1402" alt="Promotional poster showing a staircase under construction with the message Almost there" loading="lazy" decoding="async">
+        <img class="service-poster" src="/assets/almost-there-poster.webp" width="1122" height="1402" alt="Promotional poster showing a staircase under construction with the message Almost there" loading="lazy" decoding="async">
       </article>
 
       <article class="service-row">
         <div class="service-num">06</div>
         <div><h3>Renovation &amp; Refurbishment</h3><p>Targeted upgrades for residential and commercial properties, from repair and reconfiguration to finishing and renewal.</p></div>
-        <img class="service-poster" src="/assets/dream-home-poster.png" width="1122" height="1402" alt="Promotional poster showing a family dream home visual by Mridha Construction and Consultancy" loading="lazy" decoding="async">
+        <img class="service-poster" src="/assets/dream-home-poster.webp" width="1122" height="1402" alt="Promotional poster showing a family dream home visual by Mridha Construction and Consultancy" loading="lazy" decoding="async">
       </article>
     </div>
   </section>
@@ -723,28 +792,28 @@ body.site-intro-active{
 
     <div class="projects-grid">
       <article class="project-card">
-        <img class="project-poster" src="/assets/dream-home-poster.png" width="1122" height="1402" alt="Promotional poster for dream home construction services" loading="lazy" decoding="async">
+        <img class="project-poster" src="/assets/dream-home-poster.webp" width="1122" height="1402" alt="Promotional poster for dream home construction services" loading="lazy" decoding="async">
         <h3>Residential Construction</h3>
         <div class="tag">Planning · Construction · Supervision</div>
         <div class="note">Promotional/reference artwork — not presented as a completed company project photograph.</div>
       </article>
 
       <article class="project-card">
-        <img class="project-poster" src="/assets/building-tomorrow-poster.png" width="1122" height="1402" alt="Promotional poster showing workers building a structure with the title Building Tomorrow" loading="lazy" decoding="async">
+        <img class="project-poster" src="/assets/building-tomorrow-poster.webp" width="1122" height="1402" alt="Promotional poster showing workers building a structure with the title Building Tomorrow" loading="lazy" decoding="async">
         <h3>Commercial &amp; Urban Projects</h3>
         <div class="tag">Coordination · QA/QC · Delivery</div>
         <div class="note">Promotional/reference artwork — not presented as a completed company project photograph.</div>
       </article>
 
       <article class="project-card">
-        <img class="project-poster" src="/assets/strong-foundations-poster.png" width="1122" height="1402" alt="Promotional poster featuring bricks and a trowel for foundation and build services" loading="lazy" decoding="async">
+        <img class="project-poster" src="/assets/strong-foundations-poster.webp" width="1122" height="1402" alt="Promotional poster featuring bricks and a trowel for foundation and build services" loading="lazy" decoding="async">
         <h3>Renovation &amp; Refurbishment</h3>
         <div class="tag">Upgrade · Repair · Finishing</div>
         <div class="note">Promotional/reference artwork — verified company case studies can replace this once project evidence is supplied.</div>
       </article>
 
       <article class="project-card">
-        <img class="project-poster" src="/assets/almost-there-poster.png" width="1122" height="1402" alt="Promotional poster showing an interior staircase construction progress visual" loading="lazy" decoding="async">
+        <img class="project-poster" src="/assets/almost-there-poster.webp" width="1122" height="1402" alt="Promotional poster showing an interior staircase construction progress visual" loading="lazy" decoding="async">
         <h3>Interior Fit-Out</h3>
         <div class="tag">Residential · Commercial · Workplace</div>
         <div class="note">Promotional/reference artwork — verified company case studies can replace this once project evidence is supplied.</div>
@@ -805,7 +874,7 @@ body.site-intro-active{
     <div class="eyebrow">Our Commitment</div>
     <h2 id="commitment-title" style="margin-bottom:3rem">Clear Decisions.<br>Accountable Delivery.</h2>
     <div class="commitment">
-      <img class="commitment-poster" src="/assets/building-trust-poster.png" width="1122" height="1402" alt="Promotional poster showing a handshake symbolizing trust and commitment in construction" loading="lazy" decoding="async">
+      <img class="commitment-poster" src="/assets/building-trust-poster.webp" width="1122" height="1402" alt="Promotional poster showing a handshake symbolizing trust and commitment in construction" loading="lazy" decoding="async">
       <div>
         <p>Every project is approached with the same priorities: define the scope clearly, coordinate the technical details, control quality during execution and keep communication practical from start to handover.</p>
         <a class="link-arrow" href="#contact">Talk to us about your project ↗</a>
@@ -963,21 +1032,23 @@ body.site-intro-active{
   const skip = document.getElementById('site-intro-skip');
   if (!intro || !video) return;
 
-  let finished = false;
-  const revealSite = () => {
-    if (finished) return;
-    finished = true;
+  const finish = () => {
     intro.classList.add('is-finished');
     document.body.classList.remove('site-intro-active');
     setTimeout(() => intro.remove(), 600);
   };
 
-  skip?.addEventListener('click', revealSite);
-  video.addEventListener('ended', revealSite, { once:true });
-  video.addEventListener('error', revealSite, { once:true });
+  if (sessionStorage.getItem('mridha-intro-seen') === '1') {
+    finish();
+    return;
+  }
+  sessionStorage.setItem('mridha-intro-seen', '1');
 
-  video.play().catch(() => revealSite());
-  setTimeout(revealSite, 3200);
+  skip?.addEventListener('click', finish, { once:true });
+  video.addEventListener('ended', finish, { once:true });
+  video.addEventListener('error', finish, { once:true });
+  video.play().catch(finish);
+  setTimeout(finish, 3200);
 })();
 </script>
 
