@@ -1363,6 +1363,55 @@ body.project-dialog-open{overflow:hidden}
   .project-dialog-gallery{grid-template-columns:1fr}
 }
 
+
+/* Corrected non-Master project imagery: consistent 4:3 site-photo framing */
+.project-card-button[data-project-open="gazipur-apartment"] .project-card-image img,
+.project-card-button[data-project-open="tongi-fitout"] .project-card-image img,
+.project-card-button[data-project-open="sreepur-road"] .project-card-image img,
+.project-card-button[data-project-open="kaliakair-renovation"] .project-card-image img,
+#project-dialog-gazipur-apartment .project-dialog-gallery img,
+#project-dialog-tongi-fitout .project-dialog-gallery img,
+#project-dialog-sreepur-road .project-dialog-gallery img,
+#project-dialog-kaliakair-renovation .project-dialog-gallery img{
+  object-fit:cover !important;
+  object-position:center !important;
+  aspect-ratio:4/3 !important;
+}
+
+
+/* Residential Apartment: use accurately extracted photo areas without additional website cropping */
+.project-card-button[data-project-open="gazipur-apartment"] .project-card-image{
+  aspect-ratio:auto !important;
+  background:#111;
+}
+.project-card-button[data-project-open="gazipur-apartment"] .project-card-image img{
+  width:100% !important;
+  height:auto !important;
+  aspect-ratio:auto !important;
+  object-fit:contain !important;
+  object-position:center !important;
+}
+#project-dialog-gazipur-apartment .project-dialog-hero{
+  min-height:0 !important;
+  background:#111;
+}
+#project-dialog-gazipur-apartment .project-dialog-hero>img{
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  max-height:none !important;
+  object-fit:contain !important;
+  object-position:center !important;
+}
+#project-dialog-gazipur-apartment .project-dialog-gallery img{
+  width:100% !important;
+  height:auto !important;
+  aspect-ratio:auto !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  background:#111;
+}
+
 </style>
 <link rel="preload" as="video" href="/assets/mridha-construction-intro.mp4" type="video/mp4">
 </head>
@@ -1663,7 +1712,7 @@ body.project-dialog-open{overflow:hidden}
           </dl>
 
           <div class="project-dialog-gallery">
-            <figure><img src="/assets/project-gazipur-apartment-02.webp" alt="Residential Apartment Building — Progress view 01" loading="lazy" decoding="async"><figcaption>Progress view 01</figcaption></figure><figure><img src="/assets/project-gazipur-apartment-03.webp" alt="Residential Apartment Building — Progress view 02" loading="lazy" decoding="async"><figcaption>Progress view 02</figcaption></figure><figure><img src="/assets/project-gazipur-apartment-04.webp" alt="Residential Apartment Building — Progress view 03" loading="lazy" decoding="async"><figcaption>Progress view 03</figcaption></figure><figure><img src="/assets/project-gazipur-apartment-05.webp" alt="Residential Apartment Building — Progress view 04" loading="lazy" decoding="async"><figcaption>Progress view 04</figcaption></figure><figure><img src="/assets/project-gazipur-apartment-06.webp" alt="Residential Apartment Building — Progress view 05" loading="lazy" decoding="async"><figcaption>Progress view 05</figcaption></figure>
+            <figure><img src="/assets/project-gazipur-apartment-02.webp" alt="Residential Apartment Building — Foundation Work" loading="lazy" decoding="async"><figcaption>Foundation Work</figcaption></figure><figure><img src="/assets/project-gazipur-apartment-03.webp" alt="Residential Apartment Building — Structural Work" loading="lazy" decoding="async"><figcaption>Structural Work</figcaption></figure><figure><img src="/assets/project-gazipur-apartment-04.webp" alt="Residential Apartment Building — Masonry Work" loading="lazy" decoding="async"><figcaption>Masonry Work</figcaption></figure><figure><img src="/assets/project-gazipur-apartment-05.webp" alt="Residential Apartment Building — Interior Finishing" loading="lazy" decoding="async"><figcaption>Interior Finishing</figcaption></figure><figure><img src="/assets/project-gazipur-apartment-06.webp" alt="Residential Apartment Building — Rooftop Area" loading="lazy" decoding="async"><figcaption>Rooftop Area</figcaption></figure>
           </div>
 
           <p class="project-dialog-disclosure">Illustrative portfolio example using generated/separated visual assets and sample commercial data. It is not presented as verified original project evidence.</p>
@@ -1698,7 +1747,7 @@ body.project-dialog-open{overflow:hidden}
           </dl>
 
           <div class="project-dialog-gallery">
-            <figure><img src="/assets/project-tongi-fitout-02.webp" alt="Commercial Interior Fit-Out — Progress view 01" loading="lazy" decoding="async"><figcaption>Progress view 01</figcaption></figure><figure><img src="/assets/project-tongi-fitout-03.webp" alt="Commercial Interior Fit-Out — Progress view 02" loading="lazy" decoding="async"><figcaption>Progress view 02</figcaption></figure><figure><img src="/assets/project-tongi-fitout-04.webp" alt="Commercial Interior Fit-Out — Progress view 03" loading="lazy" decoding="async"><figcaption>Progress view 03</figcaption></figure><figure><img src="/assets/project-tongi-fitout-05.webp" alt="Commercial Interior Fit-Out — Progress view 04" loading="lazy" decoding="async"><figcaption>Progress view 04</figcaption></figure><figure><img src="/assets/project-tongi-fitout-06.webp" alt="Commercial Interior Fit-Out — Progress view 05" loading="lazy" decoding="async"><figcaption>Progress view 05</figcaption></figure>
+            <figure><img src="/assets/project-tongi-fitout-02.webp" alt="Commercial Interior Fit-Out — Progress view 01" loading="lazy" decoding="async"><figcaption>Base interior condition</figcaption></figure><figure><img src="/assets/project-tongi-fitout-03.webp" alt="Commercial Interior Fit-Out — Progress view 02" loading="lazy" decoding="async"><figcaption>MEP & ceiling services</figcaption></figure><figure><img src="/assets/project-tongi-fitout-04.webp" alt="Commercial Interior Fit-Out — Progress view 03" loading="lazy" decoding="async"><figcaption>Ceiling/partition installation</figcaption></figure><figure><img src="/assets/project-tongi-fitout-05.webp" alt="Commercial Interior Fit-Out — Progress view 04" loading="lazy" decoding="async"><figcaption>Reception finishing</figcaption></figure><figure><img src="/assets/project-tongi-fitout-06.webp" alt="Commercial Interior Fit-Out — Progress view 05" loading="lazy" decoding="async"><figcaption>Completed office workspace</figcaption></figure>
           </div>
 
           <p class="project-dialog-disclosure">Illustrative portfolio example using generated/separated visual assets and sample commercial data. It is not presented as verified original project evidence.</p>
@@ -1733,7 +1782,7 @@ body.project-dialog-open{overflow:hidden}
           </dl>
 
           <div class="project-dialog-gallery">
-            <figure><img src="/assets/project-sreepur-road-02.webp" alt="Rural Road Improvement — Progress view 01" loading="lazy" decoding="async"><figcaption>Progress view 01</figcaption></figure><figure><img src="/assets/project-sreepur-road-03.webp" alt="Rural Road Improvement — Progress view 02" loading="lazy" decoding="async"><figcaption>Progress view 02</figcaption></figure><figure><img src="/assets/project-sreepur-road-04.webp" alt="Rural Road Improvement — Progress view 03" loading="lazy" decoding="async"><figcaption>Progress view 03</figcaption></figure><figure><img src="/assets/project-sreepur-road-05.webp" alt="Rural Road Improvement — Progress view 04" loading="lazy" decoding="async"><figcaption>Progress view 04</figcaption></figure><figure><img src="/assets/project-sreepur-road-06.webp" alt="Rural Road Improvement — Progress view 05" loading="lazy" decoding="async"><figcaption>Progress view 05</figcaption></figure>
+            <figure><img src="/assets/project-sreepur-road-02.webp" alt="Rural Road Improvement — Progress view 01" loading="lazy" decoding="async"><figcaption>Earthwork & excavation</figcaption></figure><figure><img src="/assets/project-sreepur-road-03.webp" alt="Rural Road Improvement — Progress view 02" loading="lazy" decoding="async"><figcaption>Sub-base preparation</figcaption></figure><figure><img src="/assets/project-sreepur-road-04.webp" alt="Rural Road Improvement — Progress view 03" loading="lazy" decoding="async"><figcaption>Compaction & surfacing</figcaption></figure><figure><img src="/assets/project-sreepur-road-05.webp" alt="Rural Road Improvement — Progress view 04" loading="lazy" decoding="async"><figcaption>Drainage / culvert work</figcaption></figure><figure><img src="/assets/project-sreepur-road-06.webp" alt="Rural Road Improvement — Progress view 05" loading="lazy" decoding="async"><figcaption>Completed road section</figcaption></figure>
           </div>
 
           <p class="project-dialog-disclosure">Illustrative portfolio example using generated/separated visual assets and sample commercial data. It is not presented as verified original project evidence.</p>
@@ -1768,7 +1817,7 @@ body.project-dialog-open{overflow:hidden}
           </dl>
 
           <div class="project-dialog-gallery">
-            <figure><img src="/assets/project-kaliakair-renovation-02.webp" alt="Commercial Building Renovation — Progress view 01" loading="lazy" decoding="async"><figcaption>Progress view 01</figcaption></figure><figure><img src="/assets/project-kaliakair-renovation-03.webp" alt="Commercial Building Renovation — Progress view 02" loading="lazy" decoding="async"><figcaption>Progress view 02</figcaption></figure><figure><img src="/assets/project-kaliakair-renovation-04.webp" alt="Commercial Building Renovation — Progress view 03" loading="lazy" decoding="async"><figcaption>Progress view 03</figcaption></figure><figure><img src="/assets/project-kaliakair-renovation-05.webp" alt="Commercial Building Renovation — Progress view 04" loading="lazy" decoding="async"><figcaption>Progress view 04</figcaption></figure><figure><img src="/assets/project-kaliakair-renovation-06.webp" alt="Commercial Building Renovation — Progress view 05" loading="lazy" decoding="async"><figcaption>Progress view 05</figcaption></figure>
+            <figure><img src="/assets/project-kaliakair-renovation-02.webp" alt="Commercial Building Renovation — Progress view 01" loading="lazy" decoding="async"><figcaption>Existing building condition</figcaption></figure><figure><img src="/assets/project-kaliakair-renovation-03.webp" alt="Commercial Building Renovation — Progress view 02" loading="lazy" decoding="async"><figcaption>Structural repair work</figcaption></figure><figure><img src="/assets/project-kaliakair-renovation-04.webp" alt="Commercial Building Renovation — Progress view 03" loading="lazy" decoding="async"><figcaption>Facade / scaffold work</figcaption></figure><figure><img src="/assets/project-kaliakair-renovation-05.webp" alt="Commercial Building Renovation — Progress view 04" loading="lazy" decoding="async"><figcaption>Repair & MEP coordination</figcaption></figure><figure><img src="/assets/project-kaliakair-renovation-06.webp" alt="Commercial Building Renovation — Progress view 05" loading="lazy" decoding="async"><figcaption>Finished renovated interior</figcaption></figure>
           </div>
 
           <p class="project-dialog-disclosure">Illustrative portfolio example using generated/separated visual assets and sample commercial data. It is not presented as verified original project evidence.</p>
