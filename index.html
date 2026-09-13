@@ -1115,6 +1115,254 @@ button:focus-visible{
   .portfolio-gallery{grid-template-columns:1fr}
 }
 
+
+/* Project portfolio: single-card previews + full-detail dialog */
+.project-card-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:1.15rem;
+  margin-top:2rem;
+}
+.project-card-button{
+  appearance:none;
+  width:100%;
+  padding:0;
+  margin:0;
+  border:1px solid var(--line);
+  background:#0b0b0b;
+  color:var(--fg);
+  text-align:left;
+  cursor:pointer;
+  overflow:hidden;
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+.project-card-button:hover,
+.project-card-button:focus-visible{
+  transform:translateY(-4px);
+  border-color:rgba(201,163,90,.7);
+  box-shadow:0 14px 36px rgba(0,0,0,.28);
+}
+.project-card-image{
+  position:relative;
+  display:block;
+  aspect-ratio:4/3;
+  overflow:hidden;
+  background:#111;
+}
+.project-card-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+  transition:transform .35s ease;
+}
+.project-card-button:hover .project-card-image img{transform:scale(1.025)}
+.project-card-overlay{
+  position:absolute;
+  inset:auto 1rem 1rem auto;
+  padding:.55rem .7rem;
+  background:rgba(8,8,8,.78);
+  border:1px solid rgba(255,255,255,.18);
+  color:#fff;
+  font-size:.72rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+.project-card-copy{
+  display:grid;
+  gap:.35rem;
+  padding:1rem 1.05rem 1.1rem;
+}
+.project-card-type{
+  color:var(--accent);
+  font-size:.68rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.project-card-copy strong{
+  font-family:'Cinzel',serif;
+  font-weight:500;
+  font-size:1.05rem;
+}
+.project-card-copy>span:last-child{
+  color:var(--muted);
+  font-size:.82rem;
+}
+
+.project-dialog{
+  width:min(1180px,94vw);
+  max-height:92vh;
+  padding:0;
+  border:1px solid rgba(255,255,255,.14);
+  background:#090909;
+  color:var(--fg);
+  overflow:auto;
+}
+.project-dialog::backdrop{
+  background:rgba(0,0,0,.84);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+}
+.project-dialog-shell{position:relative}
+.project-dialog-close{
+  position:sticky;
+  float:right;
+  top:.8rem;
+  right:.8rem;
+  z-index:10;
+  width:44px;
+  height:44px;
+  margin:.8rem .8rem -52px 0;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(0,0,0,.7);
+  color:#fff;
+  font-size:1.7rem;
+  line-height:1;
+  cursor:pointer;
+}
+.project-dialog-hero{
+  position:relative;
+  min-height:420px;
+  background:#111;
+}
+.project-dialog-hero>img{
+  width:100%;
+  height:100%;
+  min-height:420px;
+  max-height:620px;
+  object-fit:cover;
+  display:block;
+}
+.project-dialog-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.8),rgba(0,0,0,.1) 55%);
+  pointer-events:none;
+}
+.project-dialog-heading{
+  position:absolute;
+  z-index:2;
+  left:clamp(1.2rem,4vw,3rem);
+  bottom:clamp(1.2rem,4vw,2.5rem);
+  right:5rem;
+}
+.project-dialog-heading>span{
+  color:var(--accent);
+  font-size:.72rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.project-dialog-heading h3{
+  font-family:'Cinzel',serif;
+  font-size:clamp(2rem,5vw,4.3rem);
+  font-weight:500;
+  margin:.3rem 0;
+}
+.project-dialog-heading p{margin:0;color:#ded8cf}
+.project-dialog-body{padding:clamp(1.2rem,3vw,2.2rem)}
+.project-dialog-status{
+  display:inline-block;
+  margin-bottom:1.2rem;
+  padding:.55rem .75rem;
+  border:1px solid rgba(201,163,90,.4);
+  color:var(--accent);
+  font-size:.72rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.project-dialog-facts{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  margin:0 0 1.6rem;
+  border-top:1px solid var(--line);
+}
+.project-dialog-facts>div{
+  display:grid;
+  grid-template-columns:145px 1fr;
+  gap:1rem;
+  padding:.9rem 0;
+  border-bottom:1px solid var(--line);
+}
+.project-dialog-facts>div:nth-child(odd){padding-right:1.2rem}
+.project-dialog-facts>div:nth-child(even){padding-left:1.2rem;border-left:1px solid var(--line)}
+.project-dialog-facts .span-2{
+  grid-column:1/-1;
+  padding-left:0!important;
+  border-left:0!important;
+}
+.project-dialog-facts dt{
+  color:var(--muted);
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.project-dialog-facts dd{margin:0;color:#eee9e1;line-height:1.5}
+.project-dialog-gallery{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:.75rem;
+}
+.project-dialog-gallery figure{
+  margin:0;
+  border:1px solid var(--line);
+  background:#0c0c0c;
+}
+.project-dialog-gallery img{
+  display:block;
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+}
+.project-dialog-gallery figcaption{
+  padding:.65rem .7rem;
+  color:var(--muted);
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+.project-dialog-disclosure{
+  margin:1rem 0 0;
+  padding:1rem;
+  border-left:2px solid var(--accent);
+  background:rgba(201,163,90,.05);
+  color:#9f9991;
+  font-size:.77rem;
+  line-height:1.6;
+}
+body.project-dialog-open{overflow:hidden}
+
+@media(max-width:1000px){
+  .project-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .project-dialog-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  .project-card-grid{grid-template-columns:1fr}
+  .project-dialog{
+    width:100vw;
+    max-width:none;
+    height:100dvh;
+    max-height:none;
+    border:0;
+  }
+  .project-dialog-hero,
+  .project-dialog-hero>img{min-height:340px}
+  .project-dialog-facts{grid-template-columns:1fr}
+  .project-dialog-facts>div,
+  .project-dialog-facts>div:nth-child(odd),
+  .project-dialog-facts>div:nth-child(even){
+    padding:.8rem 0;
+    border-left:0;
+    grid-template-columns:1fr;
+    gap:.3rem;
+  }
+  .project-dialog-facts .span-2{grid-column:auto}
+  .project-dialog-gallery{grid-template-columns:1fr}
+}
+
 </style>
 <link rel="preload" as="video" href="/assets/mridha-construction-intro.mp4" type="video/mp4">
 </head>
@@ -1281,285 +1529,256 @@ button:focus-visible{
     </div>
   </section>
 
-
   <section id="projects" aria-labelledby="projects-title">
-    <div class="eyebrow">Verified Project Evidence</div>
-    <h2 id="projects-title">Proof Before Promotion</h2>
+    <div class="eyebrow">Projects</div>
+    <h2 id="projects-title">Selected Project Portfolio</h2>
     <p class="section-lead">
-      Master Villa uses project information supplied directly for this website. The four additional Gazipur project sets below are presented as illustrative portfolio examples using generated/separated imagery and sample commercial values; they are not claimed as verified completed company projects or original site photographs.
+      Each project is shown as a single visual card. Select a project to open its full details, scope, commercial information and gallery.
     </p>
 
-
-    <article class="featured-project" aria-labelledby="master-villa-title">
-      <div class="featured-project-media">
-        <img src="/assets/master-villa-main.webp"
-             alt="AI-generated visualization based on the provided Master Villa project details"
-             width="1280" height="960" loading="lazy" decoding="async">
-        <div class="project-status"><span></span> Under Construction</div>
-      </div>
-
-      <div class="featured-project-content">
-        <div class="project-kicker">Residential Project · Phase 1 Completed</div>
-        <h3 id="master-villa-title">Master Villa</h3>
-        <p class="project-summary">
-          A 3-storey residential building project by Mridha Construction and Consultancy. The first-floor construction phase is complete and the project is progressing through the remaining planned stages.
-        </p>
-
-        <dl class="project-facts">
-          <div><dt>Client</dt><dd>Abdul Awal Mridha <span>(Heroic Freedom Fighter)</span></dd></div>
-          <div><dt>Project Company</dt><dd>Mridha Construction and Consultancy</dd></div>
-          <div><dt>Project Value</dt><dd>BDT 47 Lac</dd></div>
-          <div><dt>Building Type</dt><dd>Residential Building</dd></div>
-          <div><dt>Configuration</dt><dd>3-Storey Building</dd></div>
-          <div><dt>Current Progress</dt><dd>1st Floor Completed</dd></div>
-          <div><dt>Current Status</dt><dd>Under Construction</dd></div>
-          <div><dt>Location</dt><dd>Upazila / District to be added</dd></div>
-        </dl>
-
-        <div class="project-scope-block">
-          <h4>Current documented scope</h4>
-          <p>Residential building construction with a planned three-storey configuration. The completed project milestone currently recorded is the first-floor construction phase.</p>
-        </div>
-      </div>
-
-      <div class="project-gallery" aria-label="Master Villa project visualizations">
-        <figure>
-          <img src="/assets/master-villa-exterior.webp" alt="AI-generated exterior visualization of Master Villa construction progress" width="1280" height="960" loading="lazy" decoding="async">
-          <figcaption>Structure in progress</figcaption>
-        </figure>
-        <figure>
-          <img src="/assets/master-villa-brickwork.webp" alt="AI-generated visualization of brick masonry work for Master Villa" width="1280" height="960" loading="lazy" decoding="async">
-          <figcaption>Brickwork in progress</figcaption>
-        </figure>
-        <figure>
-          <img src="/assets/master-villa-interior.webp" alt="AI-generated interior construction visualization for Master Villa" width="1280" height="960" loading="lazy" decoding="async">
-          <figcaption>Interior construction stage</figcaption>
-        </figure>
-      </div>
-
-      <p class="visual-disclosure">
-        Visual note: the images shown here are AI-generated project visualizations created from the project details provided to Mridha Construction and Consultancy. They are not presented as original site photographs. Actual site photographs can replace them when available.
-      </p>
-    </article>
-
-
-    <div class="portfolio-divider">
-      <span>Gazipur Portfolio Examples</span>
-      <strong>Four upazila-based project sets</strong>
-      <p>These examples are retained as clearly labeled portfolio concepts until verified project documentation and original site photographs are supplied.</p>
+    <div class="project-card-grid">
+      
+      <button class="project-card-button" type="button" data-project-open="master-villa" aria-haspopup="dialog">
+        <span class="project-card-image">
+          <img src="/assets/master-villa-main.webp" alt="Master Villa project preview" loading="lazy" decoding="async">
+          <span class="project-card-overlay">View Project</span>
+        </span>
+        <span class="project-card-copy">
+          <span class="project-card-type">Residential Project</span>
+          <strong>Master Villa</strong>
+          <span>Upazila / District to be added</span>
+        </span>
+      </button>
+    
+      <button class="project-card-button" type="button" data-project-open="gazipur-apartment" aria-haspopup="dialog">
+        <span class="project-card-image">
+          <img src="/assets/project-gazipur-apartment-01.webp" alt="Residential Apartment Building project preview" loading="lazy" decoding="async">
+          <span class="project-card-overlay">View Project</span>
+        </span>
+        <span class="project-card-copy">
+          <span class="project-card-type">Residential Construction</span>
+          <strong>Residential Apartment Building</strong>
+          <span>Gazipur Sadar, Gazipur</span>
+        </span>
+      </button>
+    
+      <button class="project-card-button" type="button" data-project-open="tongi-fitout" aria-haspopup="dialog">
+        <span class="project-card-image">
+          <img src="/assets/project-tongi-fitout-01.webp" alt="Commercial Interior Fit-Out project preview" loading="lazy" decoding="async">
+          <span class="project-card-overlay">View Project</span>
+        </span>
+        <span class="project-card-copy">
+          <span class="project-card-type">Interior Fit-Out</span>
+          <strong>Commercial Interior Fit-Out</strong>
+          <span>Tongi, Gazipur</span>
+        </span>
+      </button>
+    
+      <button class="project-card-button" type="button" data-project-open="sreepur-road" aria-haspopup="dialog">
+        <span class="project-card-image">
+          <img src="/assets/project-sreepur-road-01.webp" alt="Rural Road Improvement project preview" loading="lazy" decoding="async">
+          <span class="project-card-overlay">View Project</span>
+        </span>
+        <span class="project-card-copy">
+          <span class="project-card-type">Road &amp; Infrastructure</span>
+          <strong>Rural Road Improvement</strong>
+          <span>Sreepur, Gazipur</span>
+        </span>
+      </button>
+    
+      <button class="project-card-button" type="button" data-project-open="kaliakair-renovation" aria-haspopup="dialog">
+        <span class="project-card-image">
+          <img src="/assets/project-kaliakair-renovation-01.webp" alt="Commercial Building Renovation project preview" loading="lazy" decoding="async">
+          <span class="project-card-overlay">View Project</span>
+        </span>
+        <span class="project-card-copy">
+          <span class="project-card-type">Renovation &amp; Refurbishment</span>
+          <strong>Commercial Building Renovation</strong>
+          <span>Kaliakair, Gazipur</span>
+        </span>
+      </button>
+    
     </div>
 
-    <article class="portfolio-project" id="gazipur-apartment">
-      <div class="portfolio-project-head">
-        <div>
-          <div class="project-kicker">Illustrative Portfolio Example · Residential Construction</div>
-          <h3>Residential Apartment Building</h3>
-          <p>Modern Living Spaces for a Better Community</p>
+    
+    <dialog class="project-dialog" id="project-dialog-master-villa" aria-labelledby="project-dialog-title-master-villa">
+      <div class="project-dialog-shell">
+        <button class="project-dialog-close" type="button" data-project-close aria-label="Close project details">×</button>
+
+        <div class="project-dialog-hero">
+          <img src="/assets/master-villa-main.webp" alt="Master Villa project image">
+          <div class="project-dialog-heading">
+            <span>Residential Project</span>
+            <h3 id="project-dialog-title-master-villa">Master Villa</h3>
+            <p>Upazila / District to be added</p>
+          </div>
         </div>
-        <span class="portfolio-status">Completed Example</span>
-      </div>
 
-      <div class="portfolio-project-layout">
-        <div class="portfolio-main-media">
-          <img src="/assets/project-gazipur-apartment-01.webp" alt="Illustrative generated project image for Residential Apartment Building in Gazipur Sadar, Gazipur" width="1200" height="597" loading="lazy" decoding="async">
+        <div class="project-dialog-body">
+          <div class="project-dialog-status">Under Construction · Phase 1 Completed</div>
+
+          <dl class="project-dialog-facts">
+            <div><dt>Client</dt><dd>Abdul Awal Mridha (Heroic Freedom Fighter)</dd></div>
+            <div><dt>Project Company</dt><dd>Mridha Construction and Consultancy</dd></div>
+            <div><dt>Project Value</dt><dd>BDT 47 Lac</dd></div>
+            <div><dt>Size / Configuration</dt><dd>3-Storey Building</dd></div>
+            <div><dt>Dates</dt><dd>Ongoing</dd></div>
+            <div><dt>Role</dt><dd>Residential building construction</dd></div>
+            <div class="span-2"><dt>Scope</dt><dd>Planned 3-storey residential building; 1st-floor construction phase completed.</dd></div>
+          </dl>
+
+          <div class="project-dialog-gallery">
+            <figure><img src="/assets/master-villa-exterior.webp" alt="Master Villa — Structure in progress" loading="lazy" decoding="async"><figcaption>Structure in progress</figcaption></figure><figure><img src="/assets/master-villa-brickwork.webp" alt="Master Villa — Brickwork in progress" loading="lazy" decoding="async"><figcaption>Brickwork in progress</figcaption></figure><figure><img src="/assets/master-villa-interior.webp" alt="Master Villa — Interior construction stage" loading="lazy" decoding="async"><figcaption>Interior construction stage</figcaption></figure>
+          </div>
+
+          <p class="project-dialog-disclosure">Images shown are AI-generated visualizations based on the project information supplied for Master Villa. They are not original site photographs.</p>
         </div>
-        <dl class="project-facts portfolio-facts">
-          <div><dt>Client</dt><dd>Not published</dd></div>
-          <div><dt>Project Company</dt><dd>Mridha Construction and Consultancy</dd></div>
-          <div><dt>Location</dt><dd>Gazipur Sadar, Gazipur</dd></div>
-          <div><dt>Project Value</dt><dd>BDT 49 Lac <span>illustrative value</span></dd></div>
-          <div><dt>Scope</dt><dd>Design Support · Civil Construction · Electrical · Plumbing · Finishing</dd></div>
-          <div><dt>Size</dt><dd>10 Storey · Approx. 58,000 sft</dd></div>
-          <div><dt>Dates</dt><dd>Jan 2022 – Dec 2023</dd></div>
-          <div><dt>Role</dt><dd>Project Planning · Site Supervision · Quality Control</dd></div>
-        </dl>
       </div>
+    </dialog>
+    
+    <dialog class="project-dialog" id="project-dialog-gazipur-apartment" aria-labelledby="project-dialog-title-gazipur-apartment">
+      <div class="project-dialog-shell">
+        <button class="project-dialog-close" type="button" data-project-close aria-label="Close project details">×</button>
 
-      <div class="portfolio-gallery" aria-label="Residential Apartment Building illustrative gallery">
-        <figure><img src="/assets/project-gazipur-apartment-02.webp" alt="Illustrative generated project image for Residential Apartment Building, Gazipur Sadar, Gazipur" width="900" height="1003" loading="lazy" decoding="async"><figcaption>Progress view 01</figcaption></figure><figure><img src="/assets/project-gazipur-apartment-03.webp" alt="Illustrative generated project image for Residential Apartment Building, Gazipur Sadar, Gazipur" width="900" height="1003" loading="lazy" decoding="async"><figcaption>Progress view 02</figcaption></figure><figure><img src="/assets/project-gazipur-apartment-04.webp" alt="Illustrative generated project image for Residential Apartment Building, Gazipur Sadar, Gazipur" width="900" height="1003" loading="lazy" decoding="async"><figcaption>Progress view 03</figcaption></figure><figure><img src="/assets/project-gazipur-apartment-05.webp" alt="Illustrative generated project image for Residential Apartment Building, Gazipur Sadar, Gazipur" width="900" height="1003" loading="lazy" decoding="async"><figcaption>Progress view 04</figcaption></figure><figure><img src="/assets/project-gazipur-apartment-06.webp" alt="Illustrative generated project image for Residential Apartment Building, Gazipur Sadar, Gazipur" width="900" height="688" loading="lazy" decoding="async"><figcaption>Progress view 05</figcaption></figure>
-      </div>
-
-      <p class="visual-disclosure">Transparency note: this project entry is an illustrative portfolio example. The images are generated/separated visual assets and are not represented as original site photographs. The value and completion label are sample portfolio data rather than verified commercial records.</p>
-    </article>
-
-
-    <article class="portfolio-project" id="tongi-fitout">
-      <div class="portfolio-project-head">
-        <div>
-          <div class="project-kicker">Illustrative Portfolio Example · Interior Fit-Out</div>
-          <h3>Commercial Interior Fit-Out</h3>
-          <p>Functional Spaces for Productive People</p>
+        <div class="project-dialog-hero">
+          <img src="/assets/project-gazipur-apartment-01.webp" alt="Residential Apartment Building project image">
+          <div class="project-dialog-heading">
+            <span>Residential Construction</span>
+            <h3 id="project-dialog-title-gazipur-apartment">Residential Apartment Building</h3>
+            <p>Gazipur Sadar, Gazipur</p>
+          </div>
         </div>
-        <span class="portfolio-status">Completed Example</span>
-      </div>
 
-      <div class="portfolio-project-layout">
-        <div class="portfolio-main-media">
-          <img src="/assets/project-tongi-fitout-01.webp" alt="Illustrative generated project image for Commercial Interior Fit-Out in Tongi, Gazipur" width="1200" height="597" loading="lazy" decoding="async">
+        <div class="project-dialog-body">
+          <div class="project-dialog-status">Illustrative Portfolio Example · Completed</div>
+
+          <dl class="project-dialog-facts">
+            <div><dt>Client</dt><dd>Not published</dd></div>
+            <div><dt>Project Company</dt><dd>Mridha Construction and Consultancy</dd></div>
+            <div><dt>Project Value</dt><dd>BDT 49 Lac</dd></div>
+            <div><dt>Size / Configuration</dt><dd>10 Storey · Approx. 58,000 sft</dd></div>
+            <div><dt>Dates</dt><dd>Jan 2022 – Dec 2023</dd></div>
+            <div><dt>Role</dt><dd>Project Planning · Site Supervision · Quality Control</dd></div>
+            <div class="span-2"><dt>Scope</dt><dd>Design Support · Civil Construction · Electrical · Plumbing · Finishing</dd></div>
+          </dl>
+
+          <div class="project-dialog-gallery">
+            <figure><img src="/assets/project-gazipur-apartment-02.webp" alt="Residential Apartment Building — Progress view 01" loading="lazy" decoding="async"><figcaption>Progress view 01</figcaption></figure><figure><img src="/assets/project-gazipur-apartment-03.webp" alt="Residential Apartment Building — Progress view 02" loading="lazy" decoding="async"><figcaption>Progress view 02</figcaption></figure><figure><img src="/assets/project-gazipur-apartment-04.webp" alt="Residential Apartment Building — Progress view 03" loading="lazy" decoding="async"><figcaption>Progress view 03</figcaption></figure><figure><img src="/assets/project-gazipur-apartment-05.webp" alt="Residential Apartment Building — Progress view 04" loading="lazy" decoding="async"><figcaption>Progress view 04</figcaption></figure><figure><img src="/assets/project-gazipur-apartment-06.webp" alt="Residential Apartment Building — Progress view 05" loading="lazy" decoding="async"><figcaption>Progress view 05</figcaption></figure>
+          </div>
+
+          <p class="project-dialog-disclosure">Illustrative portfolio example using generated/separated visual assets and sample commercial data. It is not presented as verified original project evidence.</p>
         </div>
-        <dl class="project-facts portfolio-facts">
-          <div><dt>Client</dt><dd>Not published</dd></div>
-          <div><dt>Project Company</dt><dd>Mridha Construction and Consultancy</dd></div>
-          <div><dt>Location</dt><dd>Tongi, Gazipur</dd></div>
-          <div><dt>Project Value</dt><dd>BDT 28 Lac <span>illustrative value</span></dd></div>
-          <div><dt>Scope</dt><dd>Interior Fit-out · Partition · MEP · Lighting · Custom Joinery · Finishing</dd></div>
-          <div><dt>Size</dt><dd>12,000 sft Office Space</dd></div>
-          <div><dt>Dates</dt><dd>Mar 2023 – Aug 2023</dd></div>
-          <div><dt>Role</dt><dd>Site Coordination · Quality Inspection · Project Delivery</dd></div>
-        </dl>
       </div>
+    </dialog>
+    
+    <dialog class="project-dialog" id="project-dialog-tongi-fitout" aria-labelledby="project-dialog-title-tongi-fitout">
+      <div class="project-dialog-shell">
+        <button class="project-dialog-close" type="button" data-project-close aria-label="Close project details">×</button>
 
-      <div class="portfolio-gallery" aria-label="Commercial Interior Fit-Out illustrative gallery">
-        <figure><img src="/assets/project-tongi-fitout-02.webp" alt="Illustrative generated project image for Commercial Interior Fit-Out, Tongi, Gazipur" width="900" height="1003" loading="lazy" decoding="async"><figcaption>Progress view 01</figcaption></figure><figure><img src="/assets/project-tongi-fitout-03.webp" alt="Illustrative generated project image for Commercial Interior Fit-Out, Tongi, Gazipur" width="900" height="1003" loading="lazy" decoding="async"><figcaption>Progress view 02</figcaption></figure><figure><img src="/assets/project-tongi-fitout-04.webp" alt="Illustrative generated project image for Commercial Interior Fit-Out, Tongi, Gazipur" width="900" height="1003" loading="lazy" decoding="async"><figcaption>Progress view 03</figcaption></figure><figure><img src="/assets/project-tongi-fitout-05.webp" alt="Illustrative generated project image for Commercial Interior Fit-Out, Tongi, Gazipur" width="900" height="1003" loading="lazy" decoding="async"><figcaption>Progress view 04</figcaption></figure><figure><img src="/assets/project-tongi-fitout-06.webp" alt="Illustrative generated project image for Commercial Interior Fit-Out, Tongi, Gazipur" width="900" height="688" loading="lazy" decoding="async"><figcaption>Progress view 05</figcaption></figure>
-      </div>
-
-      <p class="visual-disclosure">Transparency note: this project entry is an illustrative portfolio example. The images are generated/separated visual assets and are not represented as original site photographs. The value and completion label are sample portfolio data rather than verified commercial records.</p>
-    </article>
-
-
-    <article class="portfolio-project" id="sreepur-road">
-      <div class="portfolio-project-head">
-        <div>
-          <div class="project-kicker">Illustrative Portfolio Example · Road &amp; Infrastructure</div>
-          <h3>Rural Road Improvement</h3>
-          <p>Better Roads, Stronger Communities</p>
+        <div class="project-dialog-hero">
+          <img src="/assets/project-tongi-fitout-01.webp" alt="Commercial Interior Fit-Out project image">
+          <div class="project-dialog-heading">
+            <span>Interior Fit-Out</span>
+            <h3 id="project-dialog-title-tongi-fitout">Commercial Interior Fit-Out</h3>
+            <p>Tongi, Gazipur</p>
+          </div>
         </div>
-        <span class="portfolio-status">Completed Example</span>
-      </div>
 
-      <div class="portfolio-project-layout">
-        <div class="portfolio-main-media">
-          <img src="/assets/project-sreepur-road-01.webp" alt="Illustrative generated project image for Rural Road Improvement in Sreepur, Gazipur" width="1200" height="597" loading="lazy" decoding="async">
+        <div class="project-dialog-body">
+          <div class="project-dialog-status">Illustrative Portfolio Example · Completed</div>
+
+          <dl class="project-dialog-facts">
+            <div><dt>Client</dt><dd>Not published</dd></div>
+            <div><dt>Project Company</dt><dd>Mridha Construction and Consultancy</dd></div>
+            <div><dt>Project Value</dt><dd>BDT 28 Lac</dd></div>
+            <div><dt>Size / Configuration</dt><dd>12,000 sft Office Space</dd></div>
+            <div><dt>Dates</dt><dd>Mar 2023 – Aug 2023</dd></div>
+            <div><dt>Role</dt><dd>Site Coordination · Quality Inspection · Project Delivery</dd></div>
+            <div class="span-2"><dt>Scope</dt><dd>Interior Fit-out · Partition · MEP · Lighting · Custom Joinery · Finishing</dd></div>
+          </dl>
+
+          <div class="project-dialog-gallery">
+            <figure><img src="/assets/project-tongi-fitout-02.webp" alt="Commercial Interior Fit-Out — Progress view 01" loading="lazy" decoding="async"><figcaption>Progress view 01</figcaption></figure><figure><img src="/assets/project-tongi-fitout-03.webp" alt="Commercial Interior Fit-Out — Progress view 02" loading="lazy" decoding="async"><figcaption>Progress view 02</figcaption></figure><figure><img src="/assets/project-tongi-fitout-04.webp" alt="Commercial Interior Fit-Out — Progress view 03" loading="lazy" decoding="async"><figcaption>Progress view 03</figcaption></figure><figure><img src="/assets/project-tongi-fitout-05.webp" alt="Commercial Interior Fit-Out — Progress view 04" loading="lazy" decoding="async"><figcaption>Progress view 04</figcaption></figure><figure><img src="/assets/project-tongi-fitout-06.webp" alt="Commercial Interior Fit-Out — Progress view 05" loading="lazy" decoding="async"><figcaption>Progress view 05</figcaption></figure>
+          </div>
+
+          <p class="project-dialog-disclosure">Illustrative portfolio example using generated/separated visual assets and sample commercial data. It is not presented as verified original project evidence.</p>
         </div>
-        <dl class="project-facts portfolio-facts">
-          <div><dt>Client</dt><dd>Not published</dd></div>
-          <div><dt>Project Company</dt><dd>Mridha Construction and Consultancy</dd></div>
-          <div><dt>Location</dt><dd>Sreepur, Gazipur</dd></div>
-          <div><dt>Project Value</dt><dd>BDT 42 Lac <span>illustrative value</span></dd></div>
-          <div><dt>Scope</dt><dd>Road Construction · Drainage · Culvert · Side Protection · Signage</dd></div>
-          <div><dt>Size</dt><dd>2.5 km · 18 ft Width</dd></div>
-          <div><dt>Dates</dt><dd>Jun 2021 – Feb 2022</dd></div>
-          <div><dt>Role</dt><dd>Field Supervision · Quality Control · Progress Reporting</dd></div>
-        </dl>
       </div>
+    </dialog>
+    
+    <dialog class="project-dialog" id="project-dialog-sreepur-road" aria-labelledby="project-dialog-title-sreepur-road">
+      <div class="project-dialog-shell">
+        <button class="project-dialog-close" type="button" data-project-close aria-label="Close project details">×</button>
 
-      <div class="portfolio-gallery" aria-label="Rural Road Improvement illustrative gallery">
-        <figure><img src="/assets/project-sreepur-road-02.webp" alt="Illustrative generated project image for Rural Road Improvement, Sreepur, Gazipur" width="900" height="1003" loading="lazy" decoding="async"><figcaption>Progress view 01</figcaption></figure><figure><img src="/assets/project-sreepur-road-03.webp" alt="Illustrative generated project image for Rural Road Improvement, Sreepur, Gazipur" width="900" height="1003" loading="lazy" decoding="async"><figcaption>Progress view 02</figcaption></figure><figure><img src="/assets/project-sreepur-road-04.webp" alt="Illustrative generated project image for Rural Road Improvement, Sreepur, Gazipur" width="900" height="1003" loading="lazy" decoding="async"><figcaption>Progress view 03</figcaption></figure><figure><img src="/assets/project-sreepur-road-05.webp" alt="Illustrative generated project image for Rural Road Improvement, Sreepur, Gazipur" width="900" height="1003" loading="lazy" decoding="async"><figcaption>Progress view 04</figcaption></figure><figure><img src="/assets/project-sreepur-road-06.webp" alt="Illustrative generated project image for Rural Road Improvement, Sreepur, Gazipur" width="900" height="688" loading="lazy" decoding="async"><figcaption>Progress view 05</figcaption></figure>
-      </div>
-
-      <p class="visual-disclosure">Transparency note: this project entry is an illustrative portfolio example. The images are generated/separated visual assets and are not represented as original site photographs. The value and completion label are sample portfolio data rather than verified commercial records.</p>
-    </article>
-
-
-    <article class="portfolio-project" id="kaliakair-renovation">
-      <div class="portfolio-project-head">
-        <div>
-          <div class="project-kicker">Illustrative Portfolio Example · Renovation &amp; Refurbishment</div>
-          <h3>Commercial Building Renovation</h3>
-          <p>Renovating Today for a Stronger Tomorrow</p>
+        <div class="project-dialog-hero">
+          <img src="/assets/project-sreepur-road-01.webp" alt="Rural Road Improvement project image">
+          <div class="project-dialog-heading">
+            <span>Road &amp; Infrastructure</span>
+            <h3 id="project-dialog-title-sreepur-road">Rural Road Improvement</h3>
+            <p>Sreepur, Gazipur</p>
+          </div>
         </div>
-        <span class="portfolio-status">Completed Example</span>
-      </div>
 
-      <div class="portfolio-project-layout">
-        <div class="portfolio-main-media">
-          <img src="/assets/project-kaliakair-renovation-01.webp" alt="Illustrative generated project image for Commercial Building Renovation in Kaliakair, Gazipur" width="1200" height="597" loading="lazy" decoding="async">
+        <div class="project-dialog-body">
+          <div class="project-dialog-status">Illustrative Portfolio Example · Completed</div>
+
+          <dl class="project-dialog-facts">
+            <div><dt>Client</dt><dd>Not published</dd></div>
+            <div><dt>Project Company</dt><dd>Mridha Construction and Consultancy</dd></div>
+            <div><dt>Project Value</dt><dd>BDT 42 Lac</dd></div>
+            <div><dt>Size / Configuration</dt><dd>2.5 km · 18 ft Width</dd></div>
+            <div><dt>Dates</dt><dd>Jun 2021 – Feb 2022</dd></div>
+            <div><dt>Role</dt><dd>Field Supervision · Quality Control · Progress Reporting</dd></div>
+            <div class="span-2"><dt>Scope</dt><dd>Road Construction · Drainage · Culvert · Side Protection · Signage</dd></div>
+          </dl>
+
+          <div class="project-dialog-gallery">
+            <figure><img src="/assets/project-sreepur-road-02.webp" alt="Rural Road Improvement — Progress view 01" loading="lazy" decoding="async"><figcaption>Progress view 01</figcaption></figure><figure><img src="/assets/project-sreepur-road-03.webp" alt="Rural Road Improvement — Progress view 02" loading="lazy" decoding="async"><figcaption>Progress view 02</figcaption></figure><figure><img src="/assets/project-sreepur-road-04.webp" alt="Rural Road Improvement — Progress view 03" loading="lazy" decoding="async"><figcaption>Progress view 03</figcaption></figure><figure><img src="/assets/project-sreepur-road-05.webp" alt="Rural Road Improvement — Progress view 04" loading="lazy" decoding="async"><figcaption>Progress view 04</figcaption></figure><figure><img src="/assets/project-sreepur-road-06.webp" alt="Rural Road Improvement — Progress view 05" loading="lazy" decoding="async"><figcaption>Progress view 05</figcaption></figure>
+          </div>
+
+          <p class="project-dialog-disclosure">Illustrative portfolio example using generated/separated visual assets and sample commercial data. It is not presented as verified original project evidence.</p>
         </div>
-        <dl class="project-facts portfolio-facts">
-          <div><dt>Client</dt><dd>Not published</dd></div>
-          <div><dt>Project Company</dt><dd>Mridha Construction and Consultancy</dd></div>
-          <div><dt>Location</dt><dd>Kaliakair, Gazipur</dd></div>
-          <div><dt>Project Value</dt><dd>BDT 46 Lac <span>illustrative value</span></dd></div>
-          <div><dt>Scope</dt><dd>Structural Repair · Facade Renovation · Waterproofing · MEP Upgrade · Interior Finishing</dd></div>
-          <div><dt>Size</dt><dd>4 Storey · Approx. 28,000 sft</dd></div>
-          <div><dt>Dates</dt><dd>Sep 2023 – Apr 2024</dd></div>
-          <div><dt>Role</dt><dd>Site Management · Contractor Coordination · Quality &amp; Safety Monitoring</dd></div>
-        </dl>
       </div>
+    </dialog>
+    
+    <dialog class="project-dialog" id="project-dialog-kaliakair-renovation" aria-labelledby="project-dialog-title-kaliakair-renovation">
+      <div class="project-dialog-shell">
+        <button class="project-dialog-close" type="button" data-project-close aria-label="Close project details">×</button>
 
-      <div class="portfolio-gallery" aria-label="Commercial Building Renovation illustrative gallery">
-        <figure><img src="/assets/project-kaliakair-renovation-02.webp" alt="Illustrative generated project image for Commercial Building Renovation, Kaliakair, Gazipur" width="900" height="1003" loading="lazy" decoding="async"><figcaption>Progress view 01</figcaption></figure><figure><img src="/assets/project-kaliakair-renovation-03.webp" alt="Illustrative generated project image for Commercial Building Renovation, Kaliakair, Gazipur" width="900" height="1003" loading="lazy" decoding="async"><figcaption>Progress view 02</figcaption></figure><figure><img src="/assets/project-kaliakair-renovation-04.webp" alt="Illustrative generated project image for Commercial Building Renovation, Kaliakair, Gazipur" width="900" height="1003" loading="lazy" decoding="async"><figcaption>Progress view 03</figcaption></figure><figure><img src="/assets/project-kaliakair-renovation-05.webp" alt="Illustrative generated project image for Commercial Building Renovation, Kaliakair, Gazipur" width="900" height="1003" loading="lazy" decoding="async"><figcaption>Progress view 04</figcaption></figure><figure><img src="/assets/project-kaliakair-renovation-06.webp" alt="Illustrative generated project image for Commercial Building Renovation, Kaliakair, Gazipur" width="900" height="688" loading="lazy" decoding="async"><figcaption>Progress view 05</figcaption></figure>
+        <div class="project-dialog-hero">
+          <img src="/assets/project-kaliakair-renovation-01.webp" alt="Commercial Building Renovation project image">
+          <div class="project-dialog-heading">
+            <span>Renovation &amp; Refurbishment</span>
+            <h3 id="project-dialog-title-kaliakair-renovation">Commercial Building Renovation</h3>
+            <p>Kaliakair, Gazipur</p>
+          </div>
+        </div>
+
+        <div class="project-dialog-body">
+          <div class="project-dialog-status">Illustrative Portfolio Example · Completed</div>
+
+          <dl class="project-dialog-facts">
+            <div><dt>Client</dt><dd>Not published</dd></div>
+            <div><dt>Project Company</dt><dd>Mridha Construction and Consultancy</dd></div>
+            <div><dt>Project Value</dt><dd>BDT 46 Lac</dd></div>
+            <div><dt>Size / Configuration</dt><dd>4 Storey · Approx. 28,000 sft</dd></div>
+            <div><dt>Dates</dt><dd>Sep 2023 – Apr 2024</dd></div>
+            <div><dt>Role</dt><dd>Site Management · Contractor Coordination · Quality &amp; Safety Monitoring</dd></div>
+            <div class="span-2"><dt>Scope</dt><dd>Structural Repair · Facade Renovation · Waterproofing · MEP Upgrade · Interior Finishing</dd></div>
+          </dl>
+
+          <div class="project-dialog-gallery">
+            <figure><img src="/assets/project-kaliakair-renovation-02.webp" alt="Commercial Building Renovation — Progress view 01" loading="lazy" decoding="async"><figcaption>Progress view 01</figcaption></figure><figure><img src="/assets/project-kaliakair-renovation-03.webp" alt="Commercial Building Renovation — Progress view 02" loading="lazy" decoding="async"><figcaption>Progress view 02</figcaption></figure><figure><img src="/assets/project-kaliakair-renovation-04.webp" alt="Commercial Building Renovation — Progress view 03" loading="lazy" decoding="async"><figcaption>Progress view 03</figcaption></figure><figure><img src="/assets/project-kaliakair-renovation-05.webp" alt="Commercial Building Renovation — Progress view 04" loading="lazy" decoding="async"><figcaption>Progress view 04</figcaption></figure><figure><img src="/assets/project-kaliakair-renovation-06.webp" alt="Commercial Building Renovation — Progress view 05" loading="lazy" decoding="async"><figcaption>Progress view 05</figcaption></figure>
+          </div>
+
+          <p class="project-dialog-disclosure">Illustrative portfolio example using generated/separated visual assets and sample commercial data. It is not presented as verified original project evidence.</p>
+        </div>
       </div>
-
-      <p class="visual-disclosure">Transparency note: this project entry is an illustrative portfolio example. The images are generated/separated visual assets and are not represented as original site photographs. The value and completion label are sample portfolio data rather than verified commercial records.</p>
-    </article>
-
-    <div class="evidence-grid">
-      <article class="evidence-card">
-        <div class="evidence-step">01</div>
-        <h3>Project Identity</h3>
-        <p>Project name, client-approved description, project type and verified location down to district and upazila.</p>
-        <ul class="evidence-list">
-          <li>Project name / reference ID</li>
-          <li>District + Upazila</li>
-          <li>Residential / Commercial / Renovation / Fit-out</li>
-          <li>Start and completion period</li>
-        </ul>
-      </article>
-
-      <article class="evidence-card">
-        <div class="evidence-step">02</div>
-        <h3>Measured Scope</h3>
-        <p>Clear description of what was actually delivered, including project size, services and our role.</p>
-        <ul class="evidence-list">
-          <li>Land / built-up area</li>
-          <li>Number of floors</li>
-          <li>Scope of work</li>
-          <li>Our role and responsibilities</li>
-        </ul>
-      </article>
-
-      <article class="evidence-card">
-        <div class="evidence-step">03</div>
-        <h3>Supporting Evidence</h3>
-        <p>Evidence is matched to the project record before the case study is published.</p>
-        <ul class="evidence-list">
-          <li>Dated site photographs</li>
-          <li>Approved drawings / BOQ / work order</li>
-          <li>Inspection or QA/QC records</li>
-          <li>Handover or completion records, where available</li>
-        </ul>
-      </article>
-
-      <article class="evidence-card">
-        <div class="evidence-step">04</div>
-        <h3>Outcome &amp; Learning</h3>
-        <p>A useful case study explains the project challenge, the technical response and the result without exaggeration.</p>
-        <ul class="evidence-list">
-          <li>Project challenge</li>
-          <li>Engineering / execution solution</li>
-          <li>Quality and schedule controls</li>
-          <li>Final outcome and handover status</li>
-        </ul>
-      </article>
-    </div>
-
-    <div class="evidence-policy">
-      <div>
-        <span class="status-dot" aria-hidden="true"></span>
-        <strong>Publication standard</strong>
-      </div>
-      <p>
-        Master Villa facts are based on information supplied for that project. The four additional portfolio examples use clearly labeled illustrative imagery and sample values. None of those generated visuals are represented as original site photographs or verified completion evidence.
-      </p>
-    </div>
-
-    <details class="case-study-template">
-      <summary>What a published project case study will contain</summary>
-      <div class="case-study-spec">
-        <div><span>Project</span><strong>Verified project name</strong></div>
-        <div><span>Location</span><strong>Upazila · District · Bangladesh</strong></div>
-        <div><span>Type</span><strong>Residential / Commercial / Renovation / Fit-out</strong></div>
-        <div><span>Size</span><strong>Land area · Built-up area · Floors</strong></div>
-        <div><span>Scope</span><strong>Planning · BOQ · Construction · QA/QC · Supervision</strong></div>
-        <div><span>Role</span><strong>Exact responsibility delivered by Mridha Construction and Consultancy</strong></div>
-        <div><span>Period</span><strong>Start month/year → Handover month/year</strong></div>
-        <div><span>Evidence</span><strong>Site photos · drawings · BOQ · inspection / handover records</strong></div>
-      </div>
-    </details>
+    </dialog>
+    
   </section>
 
-  <section id="leadership" aria-labelledby="leadership-title">
+<section id="leadership" aria-labelledby="leadership-title">
     <div class="eyebrow">Engineering Leadership</div>
     <div class="leadership">
       <div class="leadership-visual">
@@ -2185,6 +2404,44 @@ button:focus-visible{
   });
 
   showStep(0);
+})();
+</script>
+
+
+<script>
+(() => {
+  const openers = document.querySelectorAll('[data-project-open]');
+  const closeDialog = (dialog) => {
+    if (!dialog) return;
+    dialog.close();
+    document.body.classList.remove('project-dialog-open');
+  };
+
+  openers.forEach(button => {
+    button.addEventListener('click', () => {
+      const dialog = document.getElementById(`project-dialog-${button.dataset.projectOpen}`);
+      if (!dialog) return;
+      dialog.showModal();
+      document.body.classList.add('project-dialog-open');
+      dialog.querySelector('[data-project-close]')?.focus();
+    });
+  });
+
+  document.querySelectorAll('.project-dialog').forEach(dialog => {
+    dialog.querySelector('[data-project-close]')?.addEventListener('click', () => closeDialog(dialog));
+
+    dialog.addEventListener('click', (event) => {
+      const rect = dialog.getBoundingClientRect();
+      const outside =
+        event.clientX < rect.left || event.clientX > rect.right ||
+        event.clientY < rect.top || event.clientY > rect.bottom;
+      if (outside) closeDialog(dialog);
+    });
+
+    dialog.addEventListener('close', () => {
+      document.body.classList.remove('project-dialog-open');
+    });
+  });
 })();
 </script>
 
