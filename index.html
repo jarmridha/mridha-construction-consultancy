@@ -1199,6 +1199,350 @@ body.project-dialog-open{overflow:hidden}
   }
 }
 
+
+/* =========================================================
+   PROJECT POPUP — premium landscape presentation
+   ========================================================= */
+.project-dialog{
+  width:min(1120px,94vw);
+  max-height:92dvh;
+  padding:0;
+  border:1px solid rgba(201,163,90,.30);
+  border-radius:18px;
+  background:#0a0a0a;
+  color:var(--fg);
+  overflow:hidden;
+  box-shadow:
+    0 28px 90px rgba(0,0,0,.72),
+    0 0 0 1px rgba(255,255,255,.03) inset;
+}
+.project-dialog::backdrop{
+  background:rgba(0,0,0,.82);
+  backdrop-filter:blur(10px) saturate(.8);
+  -webkit-backdrop-filter:blur(10px) saturate(.8);
+}
+.project-dialog-shell{
+  position:relative;
+  max-height:92dvh;
+  overflow-y:auto;
+  overscroll-behavior:contain;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(201,163,90,.55) #111;
+}
+.project-dialog-shell::-webkit-scrollbar{width:8px}
+.project-dialog-shell::-webkit-scrollbar-track{background:#111}
+.project-dialog-shell::-webkit-scrollbar-thumb{
+  background:rgba(201,163,90,.5);
+  border-radius:999px;
+}
+
+.project-dialog-close{
+  position:absolute;
+  top:16px;
+  right:16px;
+  z-index:20;
+  float:none;
+  margin:0;
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:999px;
+  background:rgba(8,8,8,.78);
+  color:#fff;
+  font-size:1.55rem;
+  line-height:1;
+  cursor:pointer;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  transition:transform .2s ease,border-color .2s ease,background .2s ease;
+}
+.project-dialog-close:hover,
+.project-dialog-close:focus-visible{
+  transform:rotate(5deg) scale(1.04);
+  border-color:var(--accent);
+  background:rgba(20,20,20,.96);
+}
+
+/* Hero image is always a landscape frame. */
+.project-dialog-hero{
+  position:relative;
+  min-height:0;
+  aspect-ratio:16 / 9;
+  overflow:hidden;
+  background:#101010;
+  border-bottom:1px solid rgba(255,255,255,.09);
+}
+.project-dialog-hero>img,
+#project-dialog-gazipur-apartment .project-dialog-hero>img{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:0;
+  max-height:none;
+  aspect-ratio:16 / 9;
+  object-fit:cover;
+  object-position:center;
+  background:#101010;
+}
+.project-dialog-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.08) 25%,rgba(0,0,0,.20) 52%,rgba(0,0,0,.88) 100%),
+    linear-gradient(90deg,rgba(0,0,0,.38),transparent 58%);
+}
+.project-dialog-heading{
+  position:absolute;
+  z-index:2;
+  left:clamp(1.35rem,4vw,3.2rem);
+  right:5.5rem;
+  bottom:clamp(1.35rem,3.2vw,2.7rem);
+}
+.project-dialog-heading>span{
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:.42rem .65rem;
+  border:1px solid rgba(201,163,90,.42);
+  border-radius:999px;
+  background:rgba(0,0,0,.34);
+  color:var(--accent);
+  font-size:.68rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  backdrop-filter:blur(5px);
+}
+.project-dialog-heading h3{
+  max-width:850px;
+  margin:.6rem 0 .2rem;
+  font-family:'Cinzel',serif;
+  font-size:clamp(1.9rem,4vw,3.8rem);
+  font-weight:500;
+  line-height:1.04;
+  text-wrap:balance;
+}
+.project-dialog-heading p{
+  margin:0;
+  color:#e4ded5;
+  font-size:.92rem;
+}
+
+.project-dialog-body{
+  padding:clamp(1.35rem,3vw,2.5rem);
+  background:
+    radial-gradient(circle at 88% 0,rgba(201,163,90,.055),transparent 28%),
+    #0a0a0a;
+}
+.project-dialog-status{
+  display:inline-flex;
+  align-items:center;
+  gap:.45rem;
+  margin:0 0 1.45rem;
+  padding:.56rem .8rem;
+  border:1px solid rgba(201,163,90,.42);
+  border-radius:999px;
+  background:rgba(201,163,90,.055);
+  color:var(--accent);
+  font-size:.68rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.project-dialog-status::before{
+  content:"";
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 12px rgba(201,163,90,.55);
+}
+
+.project-dialog-facts{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0;
+  margin:0 0 2rem;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:12px;
+  overflow:hidden;
+  background:rgba(255,255,255,.018);
+}
+.project-dialog-facts>div,
+.project-dialog-facts>div:nth-child(odd),
+.project-dialog-facts>div:nth-child(even){
+  display:grid;
+  grid-template-columns:132px minmax(0,1fr);
+  gap:1rem;
+  padding:1rem 1.15rem;
+  border:0;
+  border-bottom:1px solid rgba(255,255,255,.075);
+}
+.project-dialog-facts>div:nth-child(odd){
+  border-right:1px solid rgba(255,255,255,.075);
+}
+.project-dialog-facts .span-2{
+  grid-column:1/-1;
+  border-right:0;
+}
+.project-dialog-facts>div:nth-last-child(-n+2){border-bottom:0}
+.project-dialog-facts .span-2:last-child{border-bottom:0}
+.project-dialog-facts dt{
+  color:#8f8981;
+  font-size:.66rem;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+}
+.project-dialog-facts dd{
+  margin:0;
+  color:#f0ebe3;
+  line-height:1.55;
+}
+
+/* Every project image inside the popup uses a 16:9 landscape frame. */
+.project-dialog-gallery,
+#project-dialog-tongi-fitout .project-dialog-gallery,
+#project-dialog-kaliakair-renovation .project-dialog-gallery{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1rem;
+}
+.project-dialog-gallery figure{
+  position:relative;
+  margin:0;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:12px;
+  background:#101010;
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+.project-dialog-gallery figure:hover{
+  transform:translateY(-2px);
+  border-color:rgba(201,163,90,.38);
+  box-shadow:0 12px 30px rgba(0,0,0,.28);
+}
+.project-dialog-gallery img,
+#project-dialog-gazipur-apartment .project-dialog-gallery img,
+#project-dialog-tongi-fitout .project-dialog-gallery img,
+#project-dialog-sreepur-road .project-dialog-gallery img,
+#project-dialog-kaliakair-renovation .project-dialog-gallery img{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:16 / 9;
+  object-fit:cover;
+  object-position:center;
+  background:#101010;
+}
+.project-dialog-gallery figcaption{
+  min-height:44px;
+  display:flex;
+  align-items:center;
+  padding:.72rem .85rem;
+  border-top:1px solid rgba(255,255,255,.07);
+  color:#aaa39a;
+  font-size:.68rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+.project-dialog-disclosure{
+  margin:1.25rem 0 0;
+  padding:1rem 1.1rem;
+  border:1px solid rgba(201,163,90,.20);
+  border-left:3px solid var(--accent);
+  border-radius:0 10px 10px 0;
+  background:rgba(201,163,90,.045);
+  color:#9f9991;
+  font-size:.77rem;
+  line-height:1.65;
+}
+
+/* Open animation */
+.project-dialog[open]{
+  animation:projectDialogIn .25s ease both;
+}
+@keyframes projectDialogIn{
+  from{opacity:0;transform:translateY(16px) scale(.985)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+@media(max-width:900px){
+  .project-dialog{
+    width:min(96vw,900px);
+    border-radius:14px;
+  }
+  .project-dialog-facts{
+    grid-template-columns:1fr;
+  }
+  .project-dialog-facts>div,
+  .project-dialog-facts>div:nth-child(odd),
+  .project-dialog-facts>div:nth-child(even){
+    border-right:0;
+    border-bottom:1px solid rgba(255,255,255,.075);
+  }
+  .project-dialog-facts .span-2{grid-column:auto}
+  .project-dialog-facts>div:last-child{border-bottom:0}
+}
+
+@media(max-width:700px){
+  .project-dialog{
+    width:100vw;
+    height:100dvh;
+    max-width:none;
+    max-height:none;
+    border:0;
+    border-radius:0;
+  }
+  .project-dialog-shell{
+    max-height:100dvh;
+  }
+  .project-dialog-close{
+    top:12px;
+    right:12px;
+    width:42px;
+    height:42px;
+  }
+  .project-dialog-hero{
+    aspect-ratio:16 / 10;
+    min-height:0;
+  }
+  .project-dialog-hero>img,
+  #project-dialog-gazipur-apartment .project-dialog-hero>img{
+    min-height:0;
+    aspect-ratio:16 / 10;
+  }
+  .project-dialog-heading{
+    left:1rem;
+    right:4.2rem;
+    bottom:1rem;
+  }
+  .project-dialog-heading h3{
+    font-size:clamp(1.7rem,8vw,2.45rem);
+  }
+  .project-dialog-body{
+    padding:1.1rem;
+  }
+  .project-dialog-facts>div,
+  .project-dialog-facts>div:nth-child(odd),
+  .project-dialog-facts>div:nth-child(even){
+    grid-template-columns:1fr;
+    gap:.3rem;
+    padding:.85rem .95rem;
+  }
+  .project-dialog-gallery,
+  #project-dialog-tongi-fitout .project-dialog-gallery,
+  #project-dialog-kaliakair-renovation .project-dialog-gallery{
+    grid-template-columns:1fr;
+    gap:.85rem;
+  }
+  .project-dialog-gallery img,
+  #project-dialog-gazipur-apartment .project-dialog-gallery img{
+    aspect-ratio:16 / 9;
+  }
+}
+
 </style>
 <link as="video" href="/assets/mridha-construction-intro.mp4" rel="preload" type="video/mp4"/>
 </head>
@@ -1402,7 +1746,7 @@ body.project-dialog-open{overflow:hidden}
 </span>
 </button>
 </div>
-<dialog aria-labelledby="project-dialog-title-master-villa" class="project-dialog" id="project-dialog-master-villa">
+<dialog aria-labelledby="project-dialog-title-master-villa" class="project-dialog project-dialog-landscape" id="project-dialog-master-villa">
 <div class="project-dialog-shell">
 <button aria-label="Close project details" class="project-dialog-close" data-project-close="" type="button">×</button>
 <div class="project-dialog-hero">
@@ -1431,7 +1775,7 @@ body.project-dialog-open{overflow:hidden}
 </div>
 </div>
 </dialog>
-<dialog aria-labelledby="project-dialog-title-gazipur-apartment" class="project-dialog" id="project-dialog-gazipur-apartment">
+<dialog aria-labelledby="project-dialog-title-gazipur-apartment" class="project-dialog project-dialog-landscape" id="project-dialog-gazipur-apartment">
 <div class="project-dialog-shell">
 <button aria-label="Close project details" class="project-dialog-close" data-project-close="" type="button">×</button>
 <div class="project-dialog-hero">
@@ -1460,7 +1804,7 @@ body.project-dialog-open{overflow:hidden}
 </div>
 </div>
 </dialog>
-<dialog aria-labelledby="project-dialog-title-tongi-fitout" class="project-dialog" id="project-dialog-tongi-fitout">
+<dialog aria-labelledby="project-dialog-title-tongi-fitout" class="project-dialog project-dialog-landscape" id="project-dialog-tongi-fitout">
 <div class="project-dialog-shell">
 <button aria-label="Close project details" class="project-dialog-close" data-project-close="" type="button">×</button>
 <div class="project-dialog-hero">
@@ -1489,7 +1833,7 @@ body.project-dialog-open{overflow:hidden}
 </div>
 </div>
 </dialog>
-<dialog aria-labelledby="project-dialog-title-sreepur-road" class="project-dialog" id="project-dialog-sreepur-road">
+<dialog aria-labelledby="project-dialog-title-sreepur-road" class="project-dialog project-dialog-landscape" id="project-dialog-sreepur-road">
 <div class="project-dialog-shell">
 <button aria-label="Close project details" class="project-dialog-close" data-project-close="" type="button">×</button>
 <div class="project-dialog-hero">
@@ -1516,7 +1860,7 @@ body.project-dialog-open{overflow:hidden}
 </div>
 </div>
 </dialog>
-<dialog aria-labelledby="project-dialog-title-kaliakair-renovation" class="project-dialog" id="project-dialog-kaliakair-renovation">
+<dialog aria-labelledby="project-dialog-title-kaliakair-renovation" class="project-dialog project-dialog-landscape" id="project-dialog-kaliakair-renovation">
 <div class="project-dialog-shell">
 <button aria-label="Close project details" class="project-dialog-close" data-project-close="" type="button">×</button>
 <div class="project-dialog-hero">
