@@ -2485,7 +2485,7 @@ body.project-dialog-open{overflow:hidden}
   const observer = new MutationObserver(() => {
     if (document.body.classList.contains('site-intro-active')) return;
     observer.disconnect();
-    openPopup();
+    setTimeout(openPopup, 600);
   });
   observer.observe(document.body, { attributes:true, attributeFilter:['class'] });
 })();
